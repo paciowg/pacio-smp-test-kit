@@ -1,0 +1,1 @@
+require_relative 'pacio_smp_test_kit/example_suite'
