@@ -18,3 +18,5 @@ group :test do
   gem 'simplecov', '0.21.2', require: false
   gem 'webmock', '~> 3.11'
 end
+
+gem 'us_core_test_kit'

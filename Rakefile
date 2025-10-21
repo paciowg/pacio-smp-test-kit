@@ -13,3 +13,12 @@ namespace :db do
     Inferno::Utils::Migration.new.run
   end
 end
+
+namespace :smp do
+  desc 'Generate tests'
+  task :generate do
+    require_relative 'lib/pacio_smp_test_kit/generator'
+
+    PacioSMPTestKit::Generator.generate
+  end
+end

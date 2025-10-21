@@ -1,5 +1,6 @@
 require_relative 'metadata'
 require_relative 'example_suite/patient_group'
+require 'us_core_test_kit'
 
 module PacioSMPTestKit
   class ExampleSuite < Inferno::TestSuite
