@@ -1,0 +1,111 @@
+---
+:name: us_core_patient
+:class_name: UsCorePatientSequence
+:version: v1.0.0
+:reformatted_version: v100
+:resource: Patient
+:profile_url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+:profile_name: US Core Patient Profile
+:profile_version: 6.1.0
+:title: Patient
+:short_description: Verify support for the server capabilities required by the US
+  Core Patient Profile.
+:interactions:
+- :code: read
+  :expectation: SHALL
+:operations: []
+:searches: []
+:search_definitions: {}
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: identifier.system
+  - :path: identifier.value
+  - :path: name
+  - :path: name.family
+  - :path: name.given
+  - :path: telecom.system
+  - :path: telecom.value
+  - :path: telecom.use
+  - :path: gender
+  - :path: birthDate
+  - :path: address
+  - :path: address.line
+  - :path: address.city
+  - :path: address.state
+  - :path: address.postalCode
+  - :path: communication.language
+:mandatory_elements:
+- Patient.identifier
+- Patient.identifier.system
+- Patient.identifier.value
+- Patient.name
+- Patient.telecom.system
+- Patient.telecom.value
+- Patient.gender
+- Patient.communication.language
+- Patient.link.other
+- Patient.link.type
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/identifier-use
+  :path: identifier.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/name-use
+  :path: name.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/contact-point-system
+  :path: telecom.system
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/contact-point-use
+  :path: telecom.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/administrative-gender
+  :path: gender
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/address-use
+  :path: address.use
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/address-type
+  :path: address.type
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/administrative-gender
+  :path: contact.gender
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/link-type
+  :path: link.type
+:references:
+- :path: Patient.identifier.assigner
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Patient.contact.organization
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Patient.generalPractitioner
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+  - http://hl7.org/fhir/StructureDefinition/Practitioner
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+- :path: Patient.managingOrganization
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Organization
+- :path: Patient.link.other
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Patient
+  - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+:tests:
+- :id: smp_v100_patient_read_test
+  :file_name: patient_read_test.rb
+:id: smp_v100_patient
+:file_name: patient_group.rb

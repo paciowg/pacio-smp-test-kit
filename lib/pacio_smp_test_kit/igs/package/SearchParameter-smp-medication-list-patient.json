@@ -1,0 +1,52 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "smp-medication-list-patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    }
+  ],
+  "url": "http://hl7.org/fhir/SearchParameter/smp-medication-list-patient",
+  "version": "1.0.0",
+  "name": "patient",
+  "status": "draft",
+  "experimental": false,
+  "date": "2024-02-01T01:00:00-04:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        },
+        {
+          "system": "email",
+          "value": "pharmacylists@lists.hl7.org"
+        }
+      ]
+    },
+    {
+      "name": "Andy Stechishin",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "mailto:andy.stechishin@gmail.com"
+        }
+      ]
+    }
+  ],
+  "description": "If all resources have the same subject.",
+  "code": "patient",
+  "base": [
+    "List"
+  ],
+  "type": "reference",
+  "expression": "List.subject.where(resolve() is Patient)",
+  "xpathUsage": "normal",
+  "target": [
+    "Patient"
+  ]
+}

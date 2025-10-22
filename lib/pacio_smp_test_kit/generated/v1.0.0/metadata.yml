@@ -1,0 +1,854 @@
+---
+:ig_version: v1.0.0
+:groups:
+- :name: smp_medication_list
+  :class_name: SmpMedicationListSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: List
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-list
+  :profile_name: Standardized Medication Profile - Medication List
+  :profile_version: 1.0.0
+  :title: Standardized Medication - Medication List
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Medication List.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: update
+    :expectation: SHOULD
+  - :code: create
+    :expectation: SHOULD
+  :operations:
+  - :code: smp-query
+    :expectation: MAY
+  - :code: smp-submit
+    :expectation: MAY
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  - :names:
+    - code
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - subject
+      :full_paths:
+      - List.subject
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
+    :code:
+      :paths:
+      - code
+      :full_paths:
+      - List.code
+      :comparators: {}
+      :values: []
+      :type: CodeableConcept
+      :contains_multiple: false
+      :multiple_or: MAY
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: code
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles: &1
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - :path: source
+      :types:
+      - Reference
+      :target_profiles: &2
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+  :mandatory_elements:
+  - List.status
+  - List.mode
+  - List.code
+  - List.subject
+  - List.source
+  - List.entry.item
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/list-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/list-mode
+    :path: mode
+  :references:
+  - :path: List.subject
+    :profiles: *1
+  - :path: List.encounter
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+  - :path: List.source
+    :profiles: *2
+  - :path: List.entry.item
+    :profiles:
+    - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
+- :name: smp_medicationstatement
+  :class_name: SmpMedicationstatementSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: MedicationStatement
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
+  :profile_name: Standardized Medication Profile - MedicationStatement
+  :profile_version: 1.0.0
+  :title: Standardized Medication - MedicationStatement
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - MedicationStatement.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  - :code: update
+    :expectation: SHOULD
+  - :code: create
+    :expectation: SHOULD
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: dosage
+  :mandatory_elements:
+  - MedicationStatement.status
+  - MedicationStatement.medication[x]
+  - MedicationStatement.subject
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medication-statement-status
+    :path: status
+  :references:
+  - :path: MedicationStatement.basedOn
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
+  - :path: MedicationStatement.partOf
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
+    - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
+  - :path: MedicationStatement.subject
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: MedicationStatement.context
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+    - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+  - :path: MedicationStatement.informationSource
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+  - :path: MedicationStatement.derivedFrom
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: MedicationStatement.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+- :name: smp_medication
+  :class_name: SmpMedicationSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: Medication
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
+  :profile_name: Standardized Medication Profile - Medication
+  :profile_version: 1.0.0
+  :title: Standardized Medication - Medication
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Medication.
+  :interactions:
+  - :code: read
+    :expectation: SHOULD
+  - :code: create
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: code
+    - :path: status
+  :mandatory_elements:
+  - Medication.code
+  - Medication.status
+  - Medication.ingredient.item[x]
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medication-status
+    :path: status
+  :references:
+  - :path: Medication.manufacturer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+- :name: us_core_medicationrequest
+  :class_name: UsCoreMedicationrequestSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: MedicationRequest
+  :profile_url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
+  :profile_name: US Core MedicationRequest Profile
+  :profile_version: 6.1.0
+  :title: MedicationRequest
+  :short_description: Verify support for the server capabilities required by the US
+    Core MedicationRequest Profile.
+  :interactions:
+  - :code: read
+    :expectation: SHOULD
+  - :code: create
+    :expectation: MAY
+  - :code: update
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: MedicationRequest.category:us-core
+      :slice_name: us-core
+      :path: category
+      :discriminator:
+        :type: requiredBinding
+        :path: ''
+        :values:
+        - :system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+          :code: inpatient
+        - :system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+          :code: outpatient
+        - :system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+          :code: community
+        - :system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+          :code: discharge
+    :elements:
+    - :path: status
+    - :path: intent
+    - :path: category
+    - :path: reportedBoolean
+      :original_path: reported[x]
+    - :path: reportedReference
+      :original_path: reported[x]
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+    - :path: medication[x]
+      :types:
+      - Reference
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles: &3
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - :path: encounter
+      :types:
+      - Reference
+      :target_profiles: &4
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
+    - :path: authoredOn
+    - :path: requester
+      :types:
+      - Reference
+      :target_profiles: &5
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+    - :path: dosageInstruction
+    - :path: dosageInstruction.text
+    - :path: dosageInstruction.timing
+    - :path: dosageInstruction.doseAndRate
+    - :path: dosageInstruction.doseAndRate.doseQuantity
+      :original_path: dosageInstruction.doseAndRate.dose[x]
+    - :path: dispenseRequest
+    - :path: dispenseRequest.numberOfRepeatsAllowed
+    - :path: dispenseRequest.quantity
+  :mandatory_elements:
+  - MedicationRequest.status
+  - MedicationRequest.intent
+  - MedicationRequest.medication[x]
+  - MedicationRequest.subject
+  - MedicationRequest.substitution.allowed[x]
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medicationrequest-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medicationrequest-intent
+    :path: intent
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-priority
+    :path: priority
+  :references:
+  - :path: MedicationRequest.subject
+    :profiles: *3
+  - :path: MedicationRequest.encounter
+    :profiles: *4
+  - :path: MedicationRequest.supportingInformation
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: MedicationRequest.requester
+    :profiles: *5
+  - :path: MedicationRequest.performer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - :path: MedicationRequest.recorder
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - :path: MedicationRequest.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+  - :path: MedicationRequest.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+    - http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+  - :path: MedicationRequest.insurance
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Coverage
+    - http://hl7.org/fhir/StructureDefinition/ClaimResponse
+  - :path: MedicationRequest.dispenseRequest.performer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: MedicationRequest.priorPrescription
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - :path: MedicationRequest.detectedIssue
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/DetectedIssue
+  - :path: MedicationRequest.eventHistory
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Provenance
+- :name: smp_medicationadministration
+  :class_name: SmpMedicationadministrationSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: MedicationAdministration
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
+  :profile_name: Standardized Medication Profile - MedicationAdministration
+  :profile_version: 1.0.0
+  :title: Standardized Medication - MedicationAdministration
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - MedicationAdministration.
+  :interactions:
+  - :code: read
+    :expectation: SHOULD
+  - :code: create
+    :expectation: MAY
+  - :code: update
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements: []
+  :mandatory_elements:
+  - MedicationAdministration.status
+  - MedicationAdministration.medication[x]
+  - MedicationAdministration.subject
+  - MedicationAdministration.effective[x]
+  - MedicationAdministration.performer.actor
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/medication-admin-status
+    :path: status
+  :references:
+  - :path: MedicationAdministration.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
+    - http://hl7.org/fhir/StructureDefinition/Procedure
+  - :path: MedicationAdministration.subject
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: MedicationAdministration.context
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+    - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+  - :path: MedicationAdministration.supportingInformation
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: MedicationAdministration.performer.actor
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+  - :path: MedicationAdministration.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - :path: MedicationAdministration.request
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - :path: MedicationAdministration.device
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Device
+  - :path: MedicationAdministration.eventHistory
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Provenance
+- :name: us_core_patient
+  :class_name: UsCorePatientSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: Patient
+  :profile_url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  :profile_name: US Core Patient Profile
+  :profile_version: 6.1.0
+  :title: Patient
+  :short_description: Verify support for the server capabilities required by the US
+    Core Patient Profile.
+  :interactions:
+  - :code: read
+    :expectation: SHALL
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: identifier
+    - :path: identifier.system
+    - :path: identifier.value
+    - :path: name
+    - :path: name.family
+    - :path: name.given
+    - :path: telecom.system
+    - :path: telecom.value
+    - :path: telecom.use
+    - :path: gender
+    - :path: birthDate
+    - :path: address
+    - :path: address.line
+    - :path: address.city
+    - :path: address.state
+    - :path: address.postalCode
+    - :path: communication.language
+  :mandatory_elements:
+  - Patient.identifier
+  - Patient.identifier.system
+  - Patient.identifier.value
+  - Patient.name
+  - Patient.telecom.system
+  - Patient.telecom.value
+  - Patient.gender
+  - Patient.communication.language
+  - Patient.link.other
+  - Patient.link.type
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/identifier-use
+    :path: identifier.use
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/name-use
+    :path: name.use
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/contact-point-system
+    :path: telecom.system
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/contact-point-use
+    :path: telecom.use
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/address-use
+    :path: address.use
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/address-type
+    :path: address.type
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/administrative-gender
+    :path: contact.gender
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/link-type
+    :path: link.type
+  :references:
+  - :path: Patient.identifier.assigner
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Patient.contact.organization
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Patient.generalPractitioner
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+  - :path: Patient.managingOrganization
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Patient.link.other
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+- :name: smp_bundle
+  :class_name: SmpBundleSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: Bundle
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle
+  :profile_name: Standardized Medication Profile - Bundle Medication List
+  :profile_version: 1.0.0
+  :title: Bundle Standardized Medication - Medication List
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Bundle Medication List.
+  :interactions:
+  - :code: read
+    :expectation: MAY
+  - :code: create
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: Bundle.entry:list
+      :slice_name: list
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: List
+    - :slice_id: Bundle.entry:patient
+      :slice_name: patient
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Patient
+    - :slice_id: Bundle.entry:medicationadministration
+      :slice_name: medicationadministration
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationstatement
+      :slice_name: medicationstatement
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: MedicationStatement
+    - :slice_id: Bundle.entry:medication
+      :slice_name: medication
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationrequest
+      :slice_name: medicationrequest
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationdispense
+      :slice_name: medicationdispense
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:practitioner
+      :slice_name: practitioner
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:practitionerrole
+      :slice_name: practitionerrole
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    :elements:
+    - :path: type
+      :fixed_value: collection
+    - :path: total
+    - :path: entry
+    - :path: entry:list.resource
+    - :path: entry:patient.resource
+  :mandatory_elements:
+  - Bundle.type
+  - Bundle.link.relation
+  - Bundle.link.url
+  - Bundle.entry
+  - Bundle.entry.request.method
+  - Bundle.entry.request.url
+  - Bundle.entry.response.status
+  - Bundle.entry.resource
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  :references: []
+- :name: smp_bundle_transaction
+  :class_name: SmpBundleTransactionSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: Bundle
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction
+  :profile_name: Standardized Medication Profile - Bundle Medication List Maintenance
+  :profile_version: 1.0.0
+  :title: Bundle Standardized Medication - Medication List Maintenance
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Bundle Medication List Maintenance.
+  :interactions:
+  - :code: read
+    :expectation: MAY
+  - :code: create
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: Bundle.entry:list
+      :slice_name: list
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: List
+    - :slice_id: Bundle.entry:patient
+      :slice_name: patient
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Patient
+    - :slice_id: Bundle.entry:medicationstatement
+      :slice_name: medicationstatement
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: MedicationStatement
+    - :slice_id: Bundle.entry:medication
+      :slice_name: medication
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationrequest
+      :slice_name: medicationrequest
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationdispense
+      :slice_name: medicationdispense
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    - :slice_id: Bundle.entry:medicationadministration
+      :slice_name: medicationadministration
+      :path: entry
+      :discriminator:
+        :type: type
+        :code: Resource
+    :elements:
+    - :path: type
+      :fixed_value: transaction
+    - :path: total
+    - :path: entry
+    - :path: entry.request
+    - :path: entry:list.request
+    - :path: entry:patient.request
+    - :path: entry:medicationstatement.request
+    - :path: entry:medication.request
+    - :path: entry:medicationrequest.request
+    - :path: entry:medicationdispense.request
+    - :path: entry:medicationadministration.request
+  :mandatory_elements:
+  - Bundle.type
+  - Bundle.link.relation
+  - Bundle.link.url
+  - Bundle.entry
+  - Bundle.entry.request
+  - Bundle.entry.request.method
+  - Bundle.entry.request.url
+  - Bundle.entry.response.status
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  :references: []

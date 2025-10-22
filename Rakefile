@@ -14,7 +14,7 @@ namespace :db do
   end
 end
 
-namespace :smp do
+namespace :pacio_smp do
   desc 'Generate tests'
   task :generate do
     require_relative 'lib/pacio_smp_test_kit/generator'

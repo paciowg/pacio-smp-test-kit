@@ -17,6 +17,7 @@
   :expectation: MAY
 :operations: []
 :searches: []
+:search_definitions: {}
 :must_supports:
   :extensions: []
   :slices:

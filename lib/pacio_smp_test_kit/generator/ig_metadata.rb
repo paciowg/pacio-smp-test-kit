@@ -8,7 +8,17 @@ module PacioSMPTestKit
       end
 
       def ordered_groups
-        @ordered_groups ||= groups
+        @ordered_groups ||=
+          [patient_group] + other_groups
+      end
+
+      def patient_group
+        @patient_group ||=
+          groups.find { |group| group.resource == 'Patient' }
+      end
+      
+      def other_groups
+        @other_groups ||= groups - [patient_group]
       end
 
       def to_hash

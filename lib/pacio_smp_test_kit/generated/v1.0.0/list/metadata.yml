@@ -29,6 +29,27 @@
 - :names:
   - code
   :expectation: SHALL
+:search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - List.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+  :code:
+    :paths:
+    - code
+    :full_paths:
+    - List.code
+    :comparators: {}
+    :values: []
+    :type: CodeableConcept
+    :contains_multiple: false
+    :multiple_or: MAY
 :must_supports:
   :extensions: []
   :slices: []
@@ -73,6 +94,10 @@
   :profiles:
   - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
 :tests:
+- :id: smp_v100_list_patient_search_test
+  :file_name: list_patient_search_test.rb
+- :id: smp_v100_list_code_search_test
+  :file_name: list_code_search_test.rb
 - :id: smp_v100_list_read_test
   :file_name: list_read_test.rb
 :id: smp_v100_list

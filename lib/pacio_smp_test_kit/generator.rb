@@ -1,22 +1,17 @@
 require 'fhir_models'
+require 'inferno/ext/fhir_models'
+# TODO: Remove pry after development
+        require 'pry'
+        require 'pry-byebug'
 
 require_relative 'generator/ig_loader'
 require_relative 'generator/ig_metadata_extractor'
-# require_relative 'generator/granular_scope_group_generator'
-# require_relative 'generator/granular_scope_resource_type_group_generator'
-# require_relative 'generator/granular_scope_test_generator'
-# require_relative 'generator/granular_scope_read_test_generator'
 require_relative 'generator/group_generator'
 # require_relative 'generator/must_support_test_generator'
-# require_relative 'generator/provenance_revinclude_search_test_generator'
 require_relative 'generator/read_test_generator'
-# require_relative 'generator/reference_resolution_test_generator'
 require_relative 'generator/search_test_generator'
 require_relative 'generator/suite_generator'
 require_relative 'generator/validation_test_generator'
-# require_relative 'generator/practitioner_address_test_generator'
-# require_relative 'generator/interpreter_required_extension_test_generator'
-# require_relative 'generator/verifies_requirements'
 
 module PacioSMPTestKit
   class Generator
@@ -38,27 +33,13 @@ module PacioSMPTestKit
       puts "Generating tests for IG #{File.basename(ig_file_name)}"
       load_ig_package
       extract_metadata
-      # generate_search_tests
+      write_metadata
+      generate_search_tests
       generate_read_tests
-      # TODO: generate_vread_tests
-      # TODO: generate_history_tests
       # generate_validation_tests
       # generate_must_support_tests
-      # generate_reference_resolution_tests
-      # generate_practitioner_address_tests
-      # generate_interpreter_required_extension_test_generator
-
-      # generate_granular_scope_tests
-
       generate_groups
-
-      # generate_granular_scope_resource_type_groups
-
-      # generate_granular_scope_groups
-
       generate_suites
-
-      # write_metadata
     end
 
     def extract_metadata

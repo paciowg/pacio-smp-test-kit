@@ -38,7 +38,7 @@ module PacioSMPTestKit
             interactions:,
             operations:,
             searches:,
-            # search_definitions:,
+            search_definitions:,
             # include_params: include_params,
             # revincludes: revincludes,
             # required_concepts: required_concepts,
@@ -130,7 +130,7 @@ module PacioSMPTestKit
       end
 
       def profile_name
-        require 'byebug'; byebug if profile.nil?
+        binding.pry if profile.nil?
         profile.title.gsub('  ', ' ')
       end
 

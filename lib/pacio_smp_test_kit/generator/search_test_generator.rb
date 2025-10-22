@@ -100,7 +100,8 @@ module PacioSMPTestKit
       end
 
       def needs_patient_id?
-        false
+        search_metadata[:names].include?('patient') ||
+          (resource_type == 'Patient' && search_metadata[:names].include?('_id'))
       end
 
       def search_param_names

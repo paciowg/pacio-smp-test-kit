@@ -1,3 +1,5 @@
+require_relative 'list/list_patient_search_test'
+require_relative 'list/list_code_search_test'
 require_relative 'list/list_read_test'
 
 module PacioSMPTestKit
@@ -66,6 +68,8 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'list', 'metadata.yml'), aliases: true))
       end
   
+      test from: :smp_v100_list_patient_search_test
+      test from: :smp_v100_list_code_search_test
       test from: :smp_v100_list_read_test
     end
   end

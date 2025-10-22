@@ -33,7 +33,7 @@ module PacioSMPTestKit
 
       def add_metadata_from_resources
         metadata.groups =
-          smp_resources_in_capability_statement.flat_map do |resource|
+          resources_in_capability_statement.flat_map do |resource|
             resource.supportedProfile&.map do |supported_profile|
               GroupMetadataExtractor.new(resource, supported_profile, metadata, ig_resources).group_metadata
             end
