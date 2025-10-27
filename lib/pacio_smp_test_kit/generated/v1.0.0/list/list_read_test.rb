@@ -1,9 +1,9 @@
-require_relative '../../../read_test'
+require 'us_core_test_kit/read_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class ListReadTest < Inferno::Test
-      include PacioSMPTestKit::ReadTest
+      include USCoreTestKit::ReadTest
 
       title 'Server returns correct List resource from List read interaction'
       description 'A server SHALL support the List read interaction.'

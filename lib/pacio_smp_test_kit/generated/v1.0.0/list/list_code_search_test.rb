@@ -1,10 +1,10 @@
-require_relative '../../../search_test'
-require_relative '../../../generator/group_metadata'
+require 'us_core_test_kit/search_test'
+require 'us_core_test_kit/generator/group_metadata'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class ListCodeSearchTest < Inferno::Test
-      include PacioSMPTestKit::SearchTest
+      include USCoreTestKit::SearchTest
 
       title 'Server returns valid results for List search by code'
       description %(

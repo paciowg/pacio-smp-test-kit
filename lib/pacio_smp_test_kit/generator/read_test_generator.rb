@@ -78,6 +78,10 @@ module PacioSMPTestKit
         read_interaction[:expectation]
       end
 
+      def needs_patient_id?
+        resource_type == 'Patient'
+      end
+
       def generate
         FileUtils.mkdir_p(output_file_directory)
         File.write(output_file_name, output)

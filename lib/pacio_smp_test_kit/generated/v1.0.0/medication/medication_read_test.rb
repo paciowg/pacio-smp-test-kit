@@ -1,9 +1,9 @@
-require_relative '../../../read_test'
+require 'us_core_test_kit/read_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class MedicationReadTest < Inferno::Test
-      include PacioSMPTestKit::ReadTest
+      include USCoreTestKit::ReadTest
 
       title 'Server returns correct Medication resource from Medication read interaction'
       description 'A server SHOULD support the Medication read interaction.'

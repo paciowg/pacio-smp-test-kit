@@ -1,9 +1,10 @@
 PATH
   remote: .
   specs:
-    pacio_smp_test_kit (0.0.0)
+    pacio_smp_test_kit (1.0.0)
       inferno_core (~> 1.0.6)
       tls_test_kit (~> 1.0)
+      us_core_test_kit (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/

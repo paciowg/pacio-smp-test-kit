@@ -1,14 +1,18 @@
-require_relative '../../../read_test'
+require 'us_core_test_kit/read_test'
 
 module PacioSMPTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::Test
-      include PacioSMPTestKit::ReadTest
+      include USCoreTestKit::ReadTest
 
       title 'Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
       description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'
 
-      id :<%= test_id %>
+      id :<%= test_id %><% if needs_patient_id? %>
+      input :patient_ids,
+        title: 'Patient IDs',
+        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
+  <% end %>
 
       def resource_type
         '<%= resource_type %>'

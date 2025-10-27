@@ -1,14 +1,18 @@
-require_relative '../../../read_test'
+require 'us_core_test_kit/read_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class PatientReadTest < Inferno::Test
-      include PacioSMPTestKit::ReadTest
+      include USCoreTestKit::ReadTest
 
       title 'Server returns correct Patient resource from Patient read interaction'
       description 'A server SHALL support the Patient read interaction.'
 
       id :smp_v100_patient_read_test
+      input :patient_ids,
+        title: 'Patient IDs',
+        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
+  
 
       def resource_type
         'Patient'
