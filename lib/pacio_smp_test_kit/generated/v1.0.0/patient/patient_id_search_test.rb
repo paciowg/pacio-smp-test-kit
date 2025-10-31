@@ -4,20 +4,15 @@ require_relative '../../../generator/group_metadata'
 
 module PacioSMPTestKit
   module PacioSMPV100
-    class ListPatientSearchTest < Inferno::Test
+    class PatientIdSearchTest < Inferno::Test
       include USCoreTestKit::SearchTest
 
-      title 'Server returns valid results for List search by patient'
+      title 'Server returns valid results for Patient search by _id'
       description %(
 A server SHALL support searching by
-patient on the List resource. This test
+_id on the Patient resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
-
-This test verifies that the server supports searching by reference using
-the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-different forms are expected to return the same number of results. US
-Core requires that both forms are supported by US Core responders.
 
 Because this is the first search of the sequence, resources in the
 response will be used for subsequent tests.
@@ -31,7 +26,7 @@ requirement of Pacio SMP v1.0.0.
 
       )
 
-      id :smp_v100_list_patient_search_test
+      id :smp_v100_patient__id_search_test
       optional
   
 
@@ -42,9 +37,8 @@ requirement of Pacio SMP v1.0.0.
       def self.properties
         @properties ||= USCoreTestKit::SearchTestProperties.new(
         first_search: true,
-        resource_type: 'List',
-        search_param_names: ['patient'],
-        test_reference_variants: true,
+        resource_type: 'Patient',
+        search_param_names: ['_id'],
         test_post_search: true
         )
       end
@@ -54,7 +48,7 @@ requirement of Pacio SMP v1.0.0.
       end
 
       def scratch_resources
-        scratch[:list_resources] ||= {}
+        scratch[:patient_resources] ||= {}
       end
 
       run do

@@ -1,5 +1,6 @@
 require 'us_core_test_kit/search_test'
-require 'us_core_test_kit/generator/group_metadata'
+require 'us_core_test_kit/search_test_properties'
+require_relative '../../../generator/group_metadata'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -13,7 +14,7 @@ code on the List resource. This test
 will pass if resources are returned and match the search criteria. If
 none are returned, the test is skipped.
 
-[Pacio SMP Server CapabilityStatement](http://hl7.org/fhir/us/smp/STU1/CapabilityStatement-smp-server.html)
+[Pacio SMP Server CapabilityStatement](/CapabilityStatement-smp-server.html)
 
       )
 
@@ -22,7 +23,7 @@ none are returned, the test is skipped.
   
 
       def self.properties
-        @properties ||= SearchTestProperties.new(
+        @properties ||= USCoreTestKit::SearchTestProperties.new(
         resource_type: 'List',
         search_param_names: ['code'],
         token_search_params: ['code']

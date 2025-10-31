@@ -10,12 +10,26 @@
 :title: Patient
 :short_description: Verify support for the server capabilities required by the US
   Core Patient Profile.
+:is_delayed: false
 :interactions:
 - :code: read
   :expectation: SHALL
 :operations: []
-:searches: []
-:search_definitions: {}
+:searches:
+- :names:
+  - _id
+  :expectation: SHALL
+:search_definitions:
+  :_id:
+    :paths:
+    - id
+    :full_paths:
+    - Patient.id
+    :comparators: {}
+    :values: []
+    :type: http://hl7.org/fhirpath/System.String
+    :contains_multiple: false
+    :multiple_or: MAY
 :must_supports:
   :extensions: []
   :slices: []
@@ -105,6 +119,8 @@
   - http://hl7.org/fhir/StructureDefinition/Patient
   - http://hl7.org/fhir/StructureDefinition/RelatedPerson
 :tests:
+- :id: smp_v100_patient__id_search_test
+  :file_name: patient_id_search_test.rb
 - :id: smp_v100_patient_read_test
   :file_name: patient_read_test.rb
 :id: smp_v100_patient

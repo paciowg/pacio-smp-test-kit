@@ -10,6 +10,7 @@
 :title: Standardized Medication - MedicationStatement
 :short_description: Verify support for the server capabilities required by the Standardized
   Medication Profile - MedicationStatement.
+:is_delayed: true
 :interactions:
 - :code: read
   :expectation: SHALL

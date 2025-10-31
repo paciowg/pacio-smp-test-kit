@@ -10,6 +10,7 @@
 :title: Bundle Standardized Medication - Medication List
 :short_description: Verify support for the server capabilities required by the Standardized
   Medication Profile - Bundle Medication List.
+:is_delayed: true
 :interactions:
 - :code: read
   :expectation: MAY

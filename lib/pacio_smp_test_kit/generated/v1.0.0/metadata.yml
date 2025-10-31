@@ -436,8 +436,21 @@
   - :code: read
     :expectation: SHALL
   :operations: []
-  :searches: []
-  :search_definitions: {}
+  :searches:
+  - :names:
+    - _id
+    :expectation: SHALL
+  :search_definitions:
+    :_id:
+      :paths:
+      - id
+      :full_paths:
+      - Patient.id
+      :comparators: {}
+      :values: []
+      :type: http://hl7.org/fhirpath/System.String
+      :contains_multiple: false
+      :multiple_or: MAY
   :must_supports:
     :extensions: []
     :slices: []
