@@ -12,6 +12,7 @@
   :title: Standardized Medication - Medication List
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Medication List.
+  :is_delayed: false
   :interactions:
   - :code: read
     :expectation: SHALL
@@ -95,6 +96,7 @@
   - :path: List.entry.item
     :profiles:
     - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
+  :delayed_references: []
 - :name: smp_medicationstatement
   :class_name: SmpMedicationstatementSequence
   :version: v1.0.0
@@ -106,6 +108,7 @@
   :title: Standardized Medication - MedicationStatement
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - MedicationStatement.
+  :is_delayed: false
   :interactions:
   - :code: read
     :expectation: SHALL
@@ -175,6 +178,10 @@
     - http://hl7.org/fhir/StructureDefinition/Condition
     - http://hl7.org/fhir/StructureDefinition/Observation
     - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  :delayed_references:
+  - :path: medication[x]
+    :resources:
+    - Medication
 - :name: smp_medication
   :class_name: SmpMedicationSequence
   :version: v1.0.0
@@ -186,6 +193,7 @@
   :title: Standardized Medication - Medication
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Medication.
+  :is_delayed: true
   :interactions:
   - :code: read
     :expectation: SHOULD
@@ -217,6 +225,7 @@
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Substance
     - http://hl7.org/fhir/StructureDefinition/Medication
+  :delayed_references: []
 - :name: us_core_medicationrequest
   :class_name: UsCoreMedicationrequestSequence
   :version: v1.0.0
@@ -228,6 +237,7 @@
   :title: MedicationRequest
   :short_description: Verify support for the server capabilities required by the US
     Core MedicationRequest Profile.
+  :is_delayed: false
   :interactions:
   - :code: read
     :expectation: SHOULD
@@ -395,6 +405,7 @@
   - :path: MedicationRequest.eventHistory
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Provenance
+  :delayed_references: []
 - :name: smp_medicationadministration
   :class_name: SmpMedicationadministrationSequence
   :version: v1.0.0
@@ -406,6 +417,7 @@
   :title: Standardized Medication - MedicationAdministration
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - MedicationAdministration.
+  :is_delayed: false
   :interactions:
   - :code: read
     :expectation: SHOULD
@@ -480,6 +492,10 @@
   - :path: MedicationAdministration.eventHistory
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Provenance
+  :delayed_references:
+  - :path: medication[x]
+    :resources:
+    - Medication
 - :name: us_core_patient
   :class_name: UsCorePatientSequence
   :version: v1.0.0
@@ -491,6 +507,7 @@
   :title: Patient
   :short_description: Verify support for the server capabilities required by the US
     Core Patient Profile.
+  :is_delayed: false
   :interactions:
   - :code: read
     :expectation: SHALL
@@ -598,6 +615,7 @@
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Patient
     - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+  :delayed_references: []
 - :name: smp_bundle
   :class_name: SmpBundleSequence
   :version: v1.0.0
@@ -609,6 +627,7 @@
   :title: Bundle Standardized Medication - Medication List
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Bundle Medication List.
+  :is_delayed: true
   :interactions:
   - :code: read
     :expectation: MAY
@@ -772,6 +791,7 @@
     :system: http://hl7.org/fhir/ValueSet/http-verb
     :path: entry.request.method
   :references: []
+  :delayed_references: []
 - :name: smp_bundle_transaction
   :class_name: SmpBundleTransactionSequence
   :version: v1.0.0
@@ -783,6 +803,7 @@
   :title: Bundle Standardized Medication - Medication List Maintenance
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Bundle Medication List Maintenance.
+  :is_delayed: true
   :interactions:
   - :code: read
     :expectation: MAY
@@ -924,3 +945,4 @@
     :system: http://hl7.org/fhir/ValueSet/http-verb
     :path: entry.request.method
   :references: []
+  :delayed_references: []

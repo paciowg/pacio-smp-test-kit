@@ -125,3 +125,4 @@
   :file_name: patient_read_test.rb
 :id: smp_v100_patient
 :file_name: patient_group.rb
+:delayed_references: []

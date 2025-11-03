@@ -1,34 +1,16 @@
+require 'us_core_test_kit/generator/ig_metadata_extractor'
 require_relative 'ig_metadata'
 require_relative 'group_metadata_extractor'
 
 module PacioSMPTestKit
   class Generator
-    class IGMetadataExtractor
-      attr_accessor :ig_resources, :metadata
-
+    class IGMetadataExtractor < USCoreTestKit::Generator::IGMetadataExtractor
       def initialize(ig_resources)
-        self.ig_resources = ig_resources
+        super
         self.metadata = IGMetadata.new
       end
 
-      def extract
-        add_metadata_from_ig
-        add_metadata_from_resources
-        metadata
-      end
-
-      def add_metadata_from_ig
-        metadata.ig_version = "v#{ig_resources.ig.version}".delete('-ballot')
-      end
-
-      def resources_in_capability_statement
-        ig_resources.capability_statement.rest.first.resource
-      end
-
-      def smp_resources_in_capability_statement
-        resources_in_capability_statement.filter do |resource|
-          resource.supportedProfile.any? { |sp| sp.start_with?('http://hl7.org/fhir/us/smp') }
-        end
+      def remove_extra_supported_profiles
       end
 
       def add_metadata_from_resources
@@ -38,6 +20,8 @@ module PacioSMPTestKit
               GroupMetadataExtractor.new(resource, supported_profile, metadata, ig_resources).group_metadata
             end
           end.compact
+
+        metadata.postprocess_groups(ig_resources)
       end
     end
   end

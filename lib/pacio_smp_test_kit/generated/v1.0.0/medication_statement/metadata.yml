@@ -87,3 +87,7 @@
   :file_name: medication_statement_read_test.rb
 :id: smp_v100_medication_statement
 :file_name: medication_statement_group.rb
+:delayed_references:
+- :path: medication[x]
+  :resources:
+  - Medication

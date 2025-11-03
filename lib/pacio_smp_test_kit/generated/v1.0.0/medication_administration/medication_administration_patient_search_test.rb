@@ -44,6 +44,7 @@ requirement of Pacio SMP v1.0.0.
         first_search: true,
         resource_type: 'MedicationAdministration',
         search_param_names: ['patient'],
+        saves_delayed_references: true,
         test_reference_variants: true,
         test_post_search: true
         )

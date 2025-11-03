@@ -92,3 +92,7 @@
   :file_name: medication_administration_read_test.rb
 :id: smp_v100_medication_administration
 :file_name: medication_administration_group.rb
+:delayed_references:
+- :path: medication[x]
+  :resources:
+  - Medication
