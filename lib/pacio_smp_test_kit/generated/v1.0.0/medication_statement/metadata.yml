@@ -56,6 +56,9 @@
   :profiles:
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
   - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
+- :path: MedicationStatement.medication[x]
+  :profiles:
+  - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
 - :path: MedicationStatement.subject
   :profiles:
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient

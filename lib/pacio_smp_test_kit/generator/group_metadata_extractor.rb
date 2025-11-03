@@ -243,11 +243,12 @@ module PacioSMPTestKit
       def references
         @references ||=
           profile_elements
-            .select { |element| element.type&.first&.code == 'Reference' }
+            .select { |element| element.type&.any? { |t| t.code == 'Reference' } }
             .map do |reference_definition|
+              reference_type = reference_definition.type.find { |t| t.code == 'Reference' }
               {
                 path: reference_definition.path,
-                profiles: reference_definition.type.first.targetProfile
+                profiles: reference_type.targetProfile
               }
             end
       end

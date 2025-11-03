@@ -60,14 +60,11 @@
     - :path: subject
       :types:
       - Reference
-      :target_profiles: &1
+      :target_profiles:
       - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
     - :path: source
       :types:
       - Reference
-      :target_profiles: &2
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
   :mandatory_elements:
   - List.status
   - List.mode
@@ -86,12 +83,15 @@
     :path: mode
   :references:
   - :path: List.subject
-    :profiles: *1
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
   - :path: List.encounter
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Encounter
   - :path: List.source
-    :profiles: *2
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
   - :path: List.entry.item
     :profiles:
     - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
@@ -151,6 +151,9 @@
     :profiles:
     - http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
     - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
+  - :path: MedicationStatement.medication[x]
+    :profiles:
+    - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
   - :path: MedicationStatement.subject
     :profiles:
     - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
@@ -210,6 +213,10 @@
   - :path: Medication.manufacturer
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Organization
+  - :path: Medication.ingredient.item[x]
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Substance
+    - http://hl7.org/fhir/StructureDefinition/Medication
 - :name: us_core_medicationrequest
   :class_name: UsCoreMedicationrequestSequence
   :version: v1.0.0
@@ -274,33 +281,25 @@
       - Reference
       :target_profiles:
       - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
     - :path: medication[x]
       :types:
       - Reference
     - :path: subject
       :types:
       - Reference
-      :target_profiles: &3
+      :target_profiles:
       - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
     - :path: encounter
       :types:
       - Reference
-      :target_profiles: &4
+      :target_profiles:
       - http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
     - :path: authoredOn
     - :path: requester
       :types:
       - Reference
-      :target_profiles: &5
+      :target_profiles:
       - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
     - :path: dosageInstruction
     - :path: dosageInstruction.text
     - :path: dosageInstruction.timing
@@ -330,15 +329,33 @@
     :system: http://hl7.org/fhir/ValueSet/request-priority
     :path: priority
   :references:
+  - :path: MedicationRequest.reported[x]
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+  - :path: MedicationRequest.medication[x]
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
   - :path: MedicationRequest.subject
-    :profiles: *3
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
   - :path: MedicationRequest.encounter
-    :profiles: *4
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
   - :path: MedicationRequest.supportingInformation
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Resource
   - :path: MedicationRequest.requester
-    :profiles: *5
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+    - http://hl7.org/fhir/StructureDefinition/Device
   - :path: MedicationRequest.performer
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/Practitioner
@@ -432,6 +449,9 @@
     :profiles:
     - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
     - http://hl7.org/fhir/StructureDefinition/Procedure
+  - :path: MedicationAdministration.medication[x]
+    :profiles:
+    - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
   - :path: MedicationAdministration.subject
     :profiles:
     - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient

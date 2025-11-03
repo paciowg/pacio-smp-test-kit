@@ -59,14 +59,11 @@
   - :path: subject
     :types:
     - Reference
-    :target_profiles: &1
+    :target_profiles:
     - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
   - :path: source
     :types:
     - Reference
-    :target_profiles: &2
-    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 :mandatory_elements:
 - List.status
 - List.mode
@@ -85,12 +82,15 @@
   :path: mode
 :references:
 - :path: List.subject
-  :profiles: *1
+  :profiles:
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 - :path: List.encounter
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Encounter
 - :path: List.source
-  :profiles: *2
+  :profiles:
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 - :path: List.entry.item
   :profiles:
   - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
