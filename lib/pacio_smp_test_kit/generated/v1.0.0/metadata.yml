@@ -114,8 +114,21 @@
   - :code: create
     :expectation: SHOULD
   :operations: []
-  :searches: []
-  :search_definitions: {}
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - subject
+      :full_paths:
+      - MedicationStatement.subject
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
   :must_supports:
     :extensions: []
     :slices: []
@@ -384,8 +397,21 @@
   - :code: update
     :expectation: MAY
   :operations: []
-  :searches: []
-  :search_definitions: {}
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - subject
+      :full_paths:
+      - MedicationAdministration.subject
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
   :must_supports:
     :extensions: []
     :slices: []

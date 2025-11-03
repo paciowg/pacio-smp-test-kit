@@ -10,7 +10,7 @@
 :title: Standardized Medication - MedicationStatement
 :short_description: Verify support for the server capabilities required by the Standardized
   Medication Profile - MedicationStatement.
-:is_delayed: true
+:is_delayed: false
 :interactions:
 - :code: read
   :expectation: SHALL
@@ -19,8 +19,21 @@
 - :code: create
   :expectation: SHOULD
 :operations: []
-:searches: []
-:search_definitions: {}
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+:search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - MedicationStatement.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
 :must_supports:
   :extensions: []
   :slices: []
@@ -65,6 +78,8 @@
   - http://hl7.org/fhir/StructureDefinition/Observation
   - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
 :tests:
+- :id: smp_v100_medication_statement_patient_search_test
+  :file_name: medication_statement_patient_search_test.rb
 - :id: smp_v100_medication_statement_read_test
   :file_name: medication_statement_read_test.rb
 :id: smp_v100_medication_statement

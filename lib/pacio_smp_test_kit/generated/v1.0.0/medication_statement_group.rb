@@ -1,3 +1,4 @@
+require_relative 'medication_statement/medication_statement_patient_search_test'
 require_relative 'medication_statement/medication_statement_read_test'
 
 module PacioSMPTestKit
@@ -14,6 +15,24 @@ must contain resources conforming to the Standardized Medication Profile - Medic
 specified in the SMP v1.0.0 Implementation Guide.
 
 # Testing Methodology
+## Searching
+This test sequence will first perform each required search associated
+with this resource. This sequence will perform searches with the
+following parameters:
+
+* patient
+
+### Search Parameters
+The first search uses the selected resources from the prior launch
+sequence. Any subsequent searches will look for its parameter values
+from the results of the first search. If a value cannot be found this way, the search is skipped.
+
+### Search Validation
+Inferno will retrieve up to the first 20 bundle pages of the reply for
+MedicationStatement resources and save them for subsequent tests. Each of
+these resources is then checked to see if it matches the searched
+parameters in accordance with [FHIR search
+guidelines](https://www.hl7.org/fhir/search.html).
 
 
 ## Must Support
@@ -47,6 +66,7 @@ read succeeds.
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_statement', 'metadata.yml'), aliases: true))
       end
   
+      test from: :smp_v100_medication_statement_patient_search_test
       test from: :smp_v100_medication_statement_read_test
     end
   end

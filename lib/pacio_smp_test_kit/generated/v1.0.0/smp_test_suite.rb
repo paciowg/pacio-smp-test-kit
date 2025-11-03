@@ -3,10 +3,10 @@ require_relative '../../version'
 require_relative '../../custom_groups/v1.0.0/capability_statement_group'
 require_relative 'patient_group'
 require_relative 'list_group'
-require_relative 'medication_request_group'
 require_relative 'medication_statement_group'
-require_relative 'medication_group'
+require_relative 'medication_request_group'
 require_relative 'medication_administration_group'
+require_relative 'medication_group'
 require_relative 'bundle_group'
 require_relative 'bundle_transaction_group'
 
@@ -60,10 +60,10 @@ module PacioSMPTestKit
   
       group from: :smp_v100_patient
       group from: :smp_v100_list
-      group from: :smp_v100_medication_request
       group from: :smp_v100_medication_statement
-      group from: :smp_v100_medication
+      group from: :smp_v100_medication_request
       group from: :smp_v100_medication_administration
+      group from: :smp_v100_medication
       group from: :smp_v100_bundle
       group from: :smp_v100_bundle_transaction
 

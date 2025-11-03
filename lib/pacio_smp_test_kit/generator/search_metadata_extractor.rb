@@ -9,7 +9,7 @@ module PacioSMPTestKit
         
         if resource_capabilities.type == 'Patient' 
           result << { names: ['_id'], expectation: 'SHALL' }
-        elsif resource_capabilities.type == 'MedicationRequest' 
+        elsif ['MedicationAdministration', 'MedicationRequest', 'MedicationStatement'].include?(resource_capabilities.type)
           result << { names: ['patient'], expectation: 'SHALL' }
         end
         

@@ -10,7 +10,7 @@
 :title: Standardized Medication - MedicationAdministration
 :short_description: Verify support for the server capabilities required by the Standardized
   Medication Profile - MedicationAdministration.
-:is_delayed: true
+:is_delayed: false
 :interactions:
 - :code: read
   :expectation: SHOULD
@@ -19,8 +19,21 @@
 - :code: update
   :expectation: MAY
 :operations: []
-:searches: []
-:search_definitions: {}
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+:search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - MedicationAdministration.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
 :must_supports:
   :extensions: []
   :slices: []
@@ -70,6 +83,8 @@
   :profiles:
   - http://hl7.org/fhir/StructureDefinition/Provenance
 :tests:
+- :id: smp_v100_medication_administration_patient_search_test
+  :file_name: medication_administration_patient_search_test.rb
 - :id: smp_v100_medication_administration_read_test
   :file_name: medication_administration_read_test.rb
 :id: smp_v100_medication_administration
