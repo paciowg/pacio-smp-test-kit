@@ -216,8 +216,21 @@
   - :code: update
     :expectation: MAY
   :operations: []
-  :searches: []
-  :search_definitions: {}
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - List.subject
+      :full_paths:
+      - List.subject
+      :comparators: {}
+      :values: []
+      :type: reference
+      :contains_multiple: false
+      :multiple_or: MAY
   :must_supports:
     :extensions: []
     :slices:

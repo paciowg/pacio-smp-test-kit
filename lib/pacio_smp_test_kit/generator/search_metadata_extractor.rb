@@ -7,8 +7,10 @@ module PacioSMPTestKit
       def basic_searches
         result = super
         
-        if resource_capabilities.type == 'Patient' && !result.find { |p| p.name == 'id' }
+        if resource_capabilities.type == 'Patient' 
           result << { names: ['_id'], expectation: 'SHALL' }
+        elsif resource_capabilities.type == 'MedicationRequest' 
+          result << { names: ['patient'], expectation: 'SHALL' }
         end
         
         result
