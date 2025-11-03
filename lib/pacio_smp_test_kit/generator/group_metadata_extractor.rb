@@ -130,7 +130,6 @@ module PacioSMPTestKit
       end
 
       def profile_name
-        binding.pry if profile.nil?
         profile.title.gsub('  ', ' ')
       end
 

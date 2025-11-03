@@ -44,12 +44,12 @@
       :multiple_or: MAY
     :code:
       :paths:
-      - code
+      - 'code '
       :full_paths:
-      - List.code
+      - 'List.code '
       :comparators: {}
       :values: []
-      :type: CodeableConcept
+      :type: token
       :contains_multiple: false
       :multiple_or: MAY
   :must_supports:
@@ -223,12 +223,12 @@
   :search_definitions:
     :patient:
       :paths:
-      - List.subject
+      - subject
       :full_paths:
-      - List.subject
+      - MedicationRequest.subject
       :comparators: {}
       :values: []
-      :type: reference
+      :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
   :must_supports:

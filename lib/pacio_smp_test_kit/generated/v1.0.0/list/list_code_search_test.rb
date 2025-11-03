@@ -25,8 +25,7 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= USCoreTestKit::SearchTestProperties.new(
         resource_type: 'List',
-        search_param_names: ['code'],
-        token_search_params: ['code']
+        search_param_names: ['code']
         )
       end
 

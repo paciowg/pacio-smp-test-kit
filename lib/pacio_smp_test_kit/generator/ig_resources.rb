@@ -7,11 +7,17 @@ module PacioSMPTestKit
         normalized_name = name.to_s.delete_prefix('_')
         resource_lower = resource.downcase
         
-        resources_by_type['SearchParameter'].find do |param|
+        id_match = resources_by_type['SearchParameter'].find do |param|
           param.id == "smp-#{resource_lower}-#{normalized_name}" ||
-            param.id == "us-core-#{resource_lower}-#{normalized_name}" ||
-            param.name == name
+            param.id == "us-core-#{resource_lower}-#{normalized_name}"
         end
+
+        id_match || resources_by_type['SearchParameter'].find { |param| param.name == name }
+      end
+
+      #TODO: remove 
+      def search_parameters
+        resources_by_type['SearchParameter']
       end
     end
   end
