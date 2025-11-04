@@ -6,7 +6,7 @@ module PacioSMPTestKit
       def full_paths
         @full_paths ||=
           begin
-            path = param.expression.match(/\b#{Regexp.escape(resource)}\.[^|]+/)&.to_s
+            path = param.expression.match(/\b#{Regexp.escape(resource)}\.[^|]+/)&.to_s.strip
             path = path.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
             path = path[1..-2] if path.start_with?('(') && path.end_with?(')')
             path.scan(/[. ]as[( ]([^)]*)[)]?/).flatten.map do |as_type|

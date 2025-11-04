@@ -1,11 +1,10 @@
-require 'us_core_test_kit/search_test'
-require 'us_core_test_kit/search_test_properties'
+require_relative '../../../search_test'
 require_relative '../../../generator/group_metadata'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class ListPatientSearchTest < Inferno::Test
-      include USCoreTestKit::SearchTest
+      include PacioSMPTestKit::SearchTest
 
       title 'Server returns valid results for List search by patient'
       description %(

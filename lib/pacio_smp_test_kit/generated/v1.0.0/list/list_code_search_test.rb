@@ -1,12 +1,10 @@
-#require 'us_core_test_kit/search_test'
 require_relative '../../../search_test'
-require 'us_core_test_kit/search_test_properties'
 require_relative '../../../generator/group_metadata'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class ListCodeSearchTest < Inferno::Test
-      include USCoreTestKit::SearchTest
+      include PacioSMPTestKit::SearchTest
 
       title 'Server returns valid results for List search by code'
       description %(
@@ -26,7 +24,8 @@ none are returned, the test is skipped.
       def self.properties
         @properties ||= USCoreTestKit::SearchTestProperties.new(
         resource_type: 'List',
-        search_param_names: ['code']
+        search_param_names: ['code'],
+        token_search_params: ['code']
         )
       end
 

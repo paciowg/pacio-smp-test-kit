@@ -31,7 +31,7 @@ module PacioSMPTestKit
       id :<%= suite_id %>
 
       fhir_resource_validator do
-        igs '<%= ig_identifier %>'
+        igs '<%= ig_identifier %>', 'hl7.fhir.us.core#6.1.0'
         message_filters = VALIDATION_MESSAGE_FILTERS
 
         exclude_message do |message|

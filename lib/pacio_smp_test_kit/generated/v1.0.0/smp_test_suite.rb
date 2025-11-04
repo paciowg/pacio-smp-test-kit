@@ -34,7 +34,7 @@ module PacioSMPTestKit
       id :smp_v100
 
       fhir_resource_validator do
-        igs 'hl7.fhir.us.smp#1.0.0'
+        igs 'hl7.fhir.us.smp#1.0.0', 'hl7.fhir.us.core#6.1.0'
         message_filters = VALIDATION_MESSAGE_FILTERS
 
         exclude_message do |message|
