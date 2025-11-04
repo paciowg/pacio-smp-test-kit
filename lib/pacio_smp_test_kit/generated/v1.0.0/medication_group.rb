@@ -1,4 +1,5 @@
 require_relative 'medication/medication_read_test'
+require_relative 'medication/medication_validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -48,6 +49,7 @@ read succeeds.
       end
   
       test from: :smp_v100_medication_read_test
+      test from: :smp_v100_medication_validation_test
     end
   end
 end

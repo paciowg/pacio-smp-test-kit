@@ -45,6 +45,8 @@
 :tests:
 - :id: smp_v100_medication_read_test
   :file_name: medication_read_test.rb
+- :id: smp_v100_medication_validation_test
+  :file_name: medication_validation_test.rb
 :id: smp_v100_medication
 :file_name: medication_group.rb
 :delayed_references: []

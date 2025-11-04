@@ -11,6 +11,7 @@ module PacioSMPTestKit
       end
 
       def remove_extra_supported_profiles
+        # NO extra profiles to be removed.
       end
 
       def add_metadata_from_resources

@@ -1,4 +1,5 @@
 require_relative 'bundle/bundle_read_test'
+require_relative 'bundle/bundle_validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -48,6 +49,7 @@ read succeeds.
       end
   
       test from: :smp_v100_bundle_read_test
+      test from: :smp_v100_bundle_validation_test
     end
   end
 end

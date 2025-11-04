@@ -123,6 +123,8 @@
   :file_name: patient_id_search_test.rb
 - :id: smp_v100_patient_read_test
   :file_name: patient_read_test.rb
+- :id: smp_v100_patient_validation_test
+  :file_name: patient_validation_test.rb
 :id: smp_v100_patient
 :file_name: patient_group.rb
 :delayed_references: []

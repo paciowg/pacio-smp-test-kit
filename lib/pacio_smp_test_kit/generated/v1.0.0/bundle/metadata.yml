@@ -177,6 +177,8 @@
 :tests:
 - :id: smp_v100_bundle_read_test
   :file_name: bundle_read_test.rb
+- :id: smp_v100_bundle_validation_test
+  :file_name: bundle_validation_test.rb
 :id: smp_v100_bundle
 :file_name: bundle_group.rb
 :delayed_references: []

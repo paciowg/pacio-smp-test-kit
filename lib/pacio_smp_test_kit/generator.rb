@@ -36,7 +36,7 @@ module PacioSMPTestKit
       write_metadata
       generate_search_tests
       generate_read_tests
-      # generate_validation_tests
+      generate_validation_tests
       # generate_must_support_tests
       generate_groups
       generate_suites

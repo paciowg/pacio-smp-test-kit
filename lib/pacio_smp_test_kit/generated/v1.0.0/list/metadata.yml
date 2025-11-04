@@ -101,6 +101,8 @@
   :file_name: list_code_search_test.rb
 - :id: smp_v100_list_read_test
   :file_name: list_read_test.rb
+- :id: smp_v100_list_validation_test
+  :file_name: list_validation_test.rb
 :id: smp_v100_list
 :file_name: list_group.rb
 :delayed_references: []

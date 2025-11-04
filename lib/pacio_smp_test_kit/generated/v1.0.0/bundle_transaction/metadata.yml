@@ -155,6 +155,8 @@
 :tests:
 - :id: smp_v100_bundle_transaction_read_test
   :file_name: bundle_transaction_read_test.rb
+- :id: smp_v100_bundle_transaction_validation_test
+  :file_name: bundle_transaction_validation_test.rb
 :id: smp_v100_bundle_transaction
 :file_name: bundle_transaction_group.rb
 :delayed_references: []

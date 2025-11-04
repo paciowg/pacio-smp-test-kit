@@ -1,5 +1,6 @@
 require_relative 'medication_statement/medication_statement_patient_search_test'
 require_relative 'medication_statement/medication_statement_read_test'
+require_relative 'medication_statement/medication_statement_validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -68,6 +69,7 @@ read succeeds.
   
       test from: :smp_v100_medication_statement_patient_search_test
       test from: :smp_v100_medication_statement_read_test
+      test from: :smp_v100_medication_statement_validation_test
     end
   end
 end

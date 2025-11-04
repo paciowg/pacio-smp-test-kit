@@ -1,6 +1,7 @@
 require_relative 'list/list_patient_search_test'
 require_relative 'list/list_code_search_test'
 require_relative 'list/list_read_test'
+require_relative 'list/list_validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -71,6 +72,7 @@ read succeeds.
       test from: :smp_v100_list_patient_search_test
       test from: :smp_v100_list_code_search_test
       test from: :smp_v100_list_read_test
+      test from: :smp_v100_list_validation_test
     end
   end
 end
