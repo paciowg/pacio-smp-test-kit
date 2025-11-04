@@ -3,7 +3,7 @@ require 'us_core_test_kit/validation_test'
 module PacioSMPTestKit
   module PacioSMPV100
     class MedicationAdministrationValidationTest < Inferno::Test
-      include USCoreCoreTestKit::ValidationTest
+      include USCoreTestKit::ValidationTest
 
       id :smp_v100_medication_administration_validation_test
 

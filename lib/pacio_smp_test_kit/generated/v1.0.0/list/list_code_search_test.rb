@@ -1,4 +1,5 @@
-require 'us_core_test_kit/search_test'
+#require 'us_core_test_kit/search_test'
+require_relative '../../../search_test'
 require 'us_core_test_kit/search_test_properties'
 require_relative '../../../generator/group_metadata'
 

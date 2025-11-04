@@ -1,5 +1,5 @@
 # @note includes RSpec shared context 'when testing a runnable'
-RSpec.describe PacioSMPTestKit::PatientGroup do
+RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
   let(:suite_id) { 'pacio_smp' }
   let(:group) { suite.groups[1] }
   let(:url) { 'http://example.com/fhir' }
@@ -54,6 +54,7 @@ RSpec.describe PacioSMPTestKit::PatientGroup do
       stub_request(:get, "#{url}/Patient/#{patient_id}")
         .to_return(status: 200, body: resource.to_json)
 
+        binding.pry
       result = run(test, url: url, patient_id: patient_id)
 
       expect(result.result).to eq('fail'), result.result_message
