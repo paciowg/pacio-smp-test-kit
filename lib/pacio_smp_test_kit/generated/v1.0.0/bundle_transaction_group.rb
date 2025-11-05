@@ -1,5 +1,6 @@
 require_relative 'bundle_transaction/bundle_transaction_read_test'
 require_relative 'bundle_transaction/bundle_transaction_validation_test'
+require_relative 'bundle_transaction/bundle_transaction_must_support_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -50,6 +51,7 @@ read succeeds.
   
       test from: :smp_v100_bundle_transaction_read_test
       test from: :smp_v100_bundle_transaction_validation_test
+      test from: :qi_core_v100_bundle_transaction_must_support_test
     end
   end
 end

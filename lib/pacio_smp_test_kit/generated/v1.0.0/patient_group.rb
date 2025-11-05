@@ -1,6 +1,7 @@
 require_relative 'patient/patient_id_search_test'
 require_relative 'patient/patient_read_test'
 require_relative 'patient/patient_validation_test'
+require_relative 'patient/patient_must_support_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -70,6 +71,7 @@ read succeeds.
       test from: :smp_v100_patient__id_search_test
       test from: :smp_v100_patient_read_test
       test from: :smp_v100_patient_validation_test
+      test from: :qi_core_v100_patient_must_support_test
     end
   end
 end

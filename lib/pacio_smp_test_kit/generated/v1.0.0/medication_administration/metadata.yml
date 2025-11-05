@@ -92,6 +92,8 @@
   :file_name: medication_administration_read_test.rb
 - :id: smp_v100_medication_administration_validation_test
   :file_name: medication_administration_validation_test.rb
+- :id: qi_core_v100_medication_administration_must_support_test
+  :file_name: medication_administration_must_support_test.rb
 :id: smp_v100_medication_administration
 :file_name: medication_administration_group.rb
 :delayed_references:

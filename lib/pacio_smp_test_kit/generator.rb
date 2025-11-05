@@ -7,7 +7,7 @@ require 'inferno/ext/fhir_models'
 require_relative 'generator/ig_loader'
 require_relative 'generator/ig_metadata_extractor'
 require_relative 'generator/group_generator'
-# require_relative 'generator/must_support_test_generator'
+require_relative 'generator/must_support_test_generator'
 require_relative 'generator/read_test_generator'
 require_relative 'generator/search_test_generator'
 require_relative 'generator/suite_generator'
@@ -37,7 +37,7 @@ module PacioSMPTestKit
       generate_search_tests
       generate_read_tests
       generate_validation_tests
-      # generate_must_support_tests
+      generate_must_support_tests
       generate_groups
       generate_suites
     end
