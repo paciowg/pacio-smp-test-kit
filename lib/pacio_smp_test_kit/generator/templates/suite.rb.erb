@@ -24,8 +24,8 @@ module PacioSMPTestKit
 
       def self.metadata
         @metadata ||= YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true)[:groups].map do |raw_metadata|
-            Generator::GroupMetadata.new(raw_metadata)
-          end
+          Generator::GroupMetadata.new(raw_metadata)
+        end
       end
 
       id :<%= suite_id %>
@@ -35,18 +35,17 @@ module PacioSMPTestKit
         message_filters = VALIDATION_MESSAGE_FILTERS
 
         exclude_message do |message|
-
           message_filters.any? { |filter| filter.match? message.message }
         end
       end
 
       input :url,
-        title: 'FHIR Endpoint',
-        description: 'URL of the FHIR endpoint'
+            title: 'FHIR Endpoint',
+            description: 'URL of the FHIR endpoint'
       input :smart_auth_info,
-        title: 'OAuth Credentials',
-        type: :auth_info,
-        optional: true
+            title: 'OAuth Credentials',
+            type: :auth_info,
+            optional: true
 
       fhir_client do
         url :url
@@ -54,7 +53,7 @@ module PacioSMPTestKit
       end
 
       group from: :<%= capability_statement_group_id %>
-  <% group_id_list.each do |id| %>
+<% group_id_list.each do |id| %>
       group from: :<%= id %><% end %>
 
       links [
@@ -70,7 +69,7 @@ module PacioSMPTestKit
         },
         {
           type: 'download',
-          label: 'Download', 
+          label: 'Download',
           url: 'https://github.com/paciowg/pacio-smp-test-kit/releases/'
         }
       ]

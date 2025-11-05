@@ -7,7 +7,9 @@ module PacioSMPTestKit
 
       id :smp_v100_medication_administration_validation_test
 
-      title 'MedicationAdministration resources returned during previous tests conform to the Standardized Medication Profile - MedicationAdministration'
+      title <<~DESC
+        'MedicationAdministration resources returned during previous tests conform to the Standardized Medication Profile - MedicationAdministration'
+      DESC
 
       description %(
 This test verifies resources returned from the first search conform to

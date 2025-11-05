@@ -9,7 +9,6 @@ module PacioSMPTestKit
       description 'A server MAY support the Bundle read interaction.'
 
       id :smp_v100_bundle_read_test
-
       def resource_type
         'Bundle'
       end

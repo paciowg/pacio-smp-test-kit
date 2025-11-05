@@ -6,9 +6,11 @@ module PacioSMPTestKit
   module <%= module_name %>
     class <%= class_name %> < Inferno::TestGroup
       title '<%= title %> Tests'
-      short_description '<%= short_description %>'
+      short_description <<~DESC
+        '<%= short_description %>'
+      DESC
       description %(
-  <%= description %>
+<%= description %>
       )
 
       id :<%= group_id %>
@@ -17,9 +19,11 @@ module PacioSMPTestKit
       <% end %>
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, '<%= profile_identifier %>', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(
+          YAML.load_file(File.join(__dir__, '<%= profile_identifier %>', 'metadata.yml'), aliases: true)
+        )
       end
-  <% test_id_list.each do |id| %>
+<% test_id_list.each do |id| %>
       test from: :<%= id %><% end %><% if class_name == 'ListGroup' %>
       test from: :smp_v100_operation_retrieve_test, optional: true
       test from: :smp_v100_operation_submit_test, optional: true<% end %>

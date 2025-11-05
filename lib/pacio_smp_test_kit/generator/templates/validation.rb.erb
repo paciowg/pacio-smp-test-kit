@@ -7,7 +7,9 @@ module PacioSMPTestKit
 
       id :<%= test_id %>
 
-      title '<%= resource_type %> resources returned during previous tests conform to the <%= profile_name %>'
+      title <<~DESC
+        '<%= resource_type %> resources returned during previous tests conform to the <%= profile_name %>'
+      DESC
 
       description %(
 <%= description %>

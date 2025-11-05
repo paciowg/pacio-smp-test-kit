@@ -10,9 +10,8 @@ module PacioSMPTestKit
 
       id :smp_v100_patient_read_test
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
 
       def resource_type
         'Patient'

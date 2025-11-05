@@ -26,6 +26,12 @@ module PacioSMPTestKit
         "PacioSMP#{group_metadata.reformatted_version.upcase}"
       end
 
+      def search_test_properties_string
+        search_properties
+          .map { |key, value| "#{' ' * 10}#{key}: #{value}" }
+          .join(",\n")
+      end
+
       def reference_search_description
         return '' unless test_reference_variants?
 

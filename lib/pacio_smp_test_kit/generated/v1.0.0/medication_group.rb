@@ -6,9 +6,11 @@ module PacioSMPTestKit
   module PacioSMPV100
     class MedicationGroup < Inferno::TestGroup
       title 'Standardized Medication - Medication Tests'
-      short_description 'Verify support for the server capabilities required by the Standardized Medication Profile - Medication.'
+      short_description <<~DESC
+        'Verify support for the server capabilities required by the Standardized Medication Profile - Medication.'
+      DESC
       description %(
-  # Background
+# Background
 
 The SMP Standardized Medication - Medication sequence verifies that the system under test is
 able to provide correct responses for Medication queries. These queries
@@ -27,8 +29,8 @@ elements.
 
 ## Profile Validation
 Each resource returned from the first search is expected to conform to
-the [Standardized Medication Profile - Medication](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication). Each element is checked against
-teminology binding and cardinality requirements.
+the [Standardized Medication Profile - Medication](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication).
+Each element is checked against terminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
@@ -46,9 +48,11 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(
+          YAML.load_file(File.join(__dir__, 'medication', 'metadata.yml'), aliases: true)
+        )
       end
-  
+
       test from: :smp_v100_medication_read_test
       test from: :smp_v100_medication_validation_test
       test from: :smp_v100_medication_must_support_test

@@ -10,10 +10,9 @@ module PacioSMPTestKit
 
       id :<%= test_id %><% if needs_patient_id? %>
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
-  <% end %>
-
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
+<% end %>
       def resource_type
         '<%= resource_type %>'
       end

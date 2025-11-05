@@ -7,7 +7,9 @@ module PacioSMPTestKit
 
       id :smp_v100_medication_request_validation_test
 
-      title 'MedicationRequest resources returned during previous tests conform to the US Core MedicationRequest Profile'
+      title <<~DESC
+        'MedicationRequest resources returned during previous tests conform to the US Core MedicationRequest Profile'
+      DESC
 
       description %(
 This test verifies resources returned from the first search conform to

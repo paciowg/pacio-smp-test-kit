@@ -1,8 +1,5 @@
 require 'fhir_models'
 require 'inferno/ext/fhir_models'
-# TODO: Remove pry after development
-        require 'pry'
-        require 'pry-byebug'
 
 require_relative 'generator/ig_loader'
 require_relative 'generator/ig_metadata_extractor'
@@ -57,7 +54,7 @@ module PacioSMPTestKit
     end
 
     def load_ig_package
-      FHIR.logger = Logger.new('/dev/null')
+      FHIR.logger = Logger.new(File::NULL)
       self.ig_resources = IGLoader.new(ig_file_name).load
     end
 

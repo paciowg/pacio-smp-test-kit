@@ -3,7 +3,6 @@ require_relative '../../generator/naming'
 module PacioTestKit
   module SMP
     class RetrieveTest < Inferno::Test
-
       id :smp_v100_operation_retrieve_test
 
       title 'Server returns valid results for SMP Retrieve ($smp-query) operation'

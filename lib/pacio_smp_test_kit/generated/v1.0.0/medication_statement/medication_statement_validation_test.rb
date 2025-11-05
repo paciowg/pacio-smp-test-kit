@@ -7,7 +7,9 @@ module PacioSMPTestKit
 
       id :smp_v100_medication_statement_validation_test
 
-      title 'MedicationStatement resources returned during previous tests conform to the Standardized Medication Profile - MedicationStatement'
+      title <<~DESC
+        'MedicationStatement resources returned during previous tests conform to the Standardized Medication Profile - MedicationStatement'
+      DESC
 
       description %(
 This test verifies resources returned from the first search conform to

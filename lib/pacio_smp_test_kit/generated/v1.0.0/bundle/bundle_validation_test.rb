@@ -7,7 +7,9 @@ module PacioSMPTestKit
 
       id :smp_v100_bundle_validation_test
 
-      title 'Bundle resources returned during previous tests conform to the Standardized Medication Profile - Bundle Medication List'
+      title <<~DESC
+        'Bundle resources returned during previous tests conform to the Standardized Medication Profile - Bundle Medication List'
+      DESC
 
       description %(
 This test verifies resources returned from the first search conform to

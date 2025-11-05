@@ -162,8 +162,8 @@ module PacioSMPTestKit
 
           ## Profile Validation
           Each resource returned from the first search is expected to conform to
-          the [#{profile_name}](#{profile_url}). Each element is checked against
-          teminology binding and cardinality requirements.
+          the [#{profile_name}](#{profile_url}).
+          Each element is checked against terminology binding and cardinality requirements.
 
           Elements with a required binding are validated against their bound
           ValueSet. If the code/system in the element is not part of the ValueSet,

@@ -19,13 +19,12 @@ none are returned, the test is skipped.
 
       id :smp_v100_list_code_search_test
       optional
-  
 
       def self.properties
         @properties ||= USCoreTestKit::SearchTestProperties.new(
-        resource_type: 'List',
-        search_param_names: ['code'],
-        token_search_params: ['code']
+          resource_type: 'List',
+          search_param_names: ['code'],
+          token_search_params: ['code']
         )
       end
 
@@ -38,7 +37,7 @@ none are returned, the test is skipped.
       end
 
       run do
-        run_search_test 
+        run_search_test
       end
     end
   end

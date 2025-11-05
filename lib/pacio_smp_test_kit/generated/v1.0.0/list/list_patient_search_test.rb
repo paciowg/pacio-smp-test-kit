@@ -32,19 +32,18 @@ requirement of Pacio SMP v1.0.0.
 
       id :smp_v100_list_patient_search_test
       optional
-  
 
       input :patient_ids,
-        title: 'Patient IDs',
-        description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
-  
+            title: 'Patient IDs',
+            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
+
       def self.properties
         @properties ||= USCoreTestKit::SearchTestProperties.new(
-        first_search: true,
-        resource_type: 'List',
-        search_param_names: ['patient'],
-        test_reference_variants: true,
-        test_post_search: true
+          first_search: true,
+          resource_type: 'List',
+          search_param_names: ['patient'],
+          test_reference_variants: true,
+          test_post_search: true
         )
       end
 
@@ -57,7 +56,7 @@ requirement of Pacio SMP v1.0.0.
       end
 
       run do
-        run_search_test 
+        run_search_test
       end
     end
   end

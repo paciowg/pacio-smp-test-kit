@@ -3,7 +3,6 @@ require_relative '../../generator/naming'
 module PacioTestKit
   module SMP
     class SubmitTest < Inferno::Test
-
       id :smp_v100_operation_submit_test
 
       title 'Server returns valid results for SMP Submit ($smp-submit) operation'

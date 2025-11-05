@@ -7,9 +7,11 @@ module PacioSMPTestKit
   module PacioSMPV100
     class MedicationAdministrationGroup < Inferno::TestGroup
       title 'Standardized Medication - MedicationAdministration Tests'
-      short_description 'Verify support for the server capabilities required by the Standardized Medication Profile - MedicationAdministration.'
+      short_description <<~DESC
+        'Verify support for the server capabilities required by the Standardized Medication Profile - MedicationAdministration.'
+      DESC
       description %(
-  # Background
+# Background
 
 The SMP Standardized Medication - MedicationAdministration sequence verifies that the system under test is
 able to provide correct responses for MedicationAdministration queries. These queries
@@ -46,8 +48,8 @@ elements.
 
 ## Profile Validation
 Each resource returned from the first search is expected to conform to
-the [Standardized Medication Profile - MedicationAdministration](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration). Each element is checked against
-teminology binding and cardinality requirements.
+the [Standardized Medication Profile - MedicationAdministration](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration).
+Each element is checked against terminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
@@ -65,9 +67,11 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_administration', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(
+          YAML.load_file(File.join(__dir__, 'medication_administration', 'metadata.yml'), aliases: true)
+        )
       end
-  
+
       test from: :smp_v100_medication_administration_patient_search_test
       test from: :smp_v100_medication_administration_read_test
       test from: :smp_v100_medication_administration_validation_test

@@ -1,7 +1,7 @@
 # @note includes RSpec shared context 'when testing a runnable'
 RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
   let(:suite_id) { 'smp_v100' }
-  let(:group) { suite.groups.find { |g| g.id.include?(PacioSMPTestKit::PacioSMPV100::PatientGroup.id) }}
+  let(:group) { suite.groups.find { |g| g.id.include?(described_class.id) } }
   let(:url) { 'http://example.com/fhir' }
   let(:patient_id) { 'abc123' }
   let(:patient) do
@@ -28,9 +28,8 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
     }
   end
 
-  describe 'read test' do    
-    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientReadTest.id)} }
-
+  describe 'read test' do
+    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientReadTest.id) } }
 
     before do
       allow_any_instance_of(test)
@@ -73,7 +72,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
   end
 
   describe 'validation test' do
-    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientValidationTest.id)} }
+    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientValidationTest.id) } }
 
     before do
       allow_any_instance_of(test)

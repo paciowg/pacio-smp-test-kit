@@ -10,7 +10,9 @@ module PacioSMPTestKit
     class CapabilityStatementGroup < Inferno::TestGroup
       id :smp_v100_capability_statement
       title 'Capability Statement'
-      short_description 'Retrieve information about supported server functionality using the FHIR capabilties interaction.'
+      short_description <<~DESC
+        'Retrieve information about supported server functionality using the FHIR capabilties interaction.'
+      DESC
       description %(
         # Background
         The #{title} Sequence tests a FHIR server's ability to formally describe

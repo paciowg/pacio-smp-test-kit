@@ -7,9 +7,11 @@ module PacioSMPTestKit
   module PacioSMPV100
     class MedicationRequestGroup < Inferno::TestGroup
       title 'MedicationRequest Tests'
-      short_description 'Verify support for the server capabilities required by the US Core MedicationRequest Profile.'
+      short_description <<~DESC
+        'Verify support for the server capabilities required by the US Core MedicationRequest Profile.'
+      DESC
       description %(
-  # Background
+# Background
 
 The SMP MedicationRequest sequence verifies that the system under test is
 able to provide correct responses for MedicationRequest queries. These queries
@@ -46,8 +48,8 @@ elements.
 
 ## Profile Validation
 Each resource returned from the first search is expected to conform to
-the [US Core MedicationRequest Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest). Each element is checked against
-teminology binding and cardinality requirements.
+the [US Core MedicationRequest Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest).
+Each element is checked against terminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
 ValueSet. If the code/system in the element is not part of the ValueSet,
@@ -65,9 +67,11 @@ read succeeds.
       run_as_group
 
       def self.metadata
-        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'medication_request', 'metadata.yml'), aliases: true))
+        @metadata ||= Generator::GroupMetadata.new(
+          YAML.load_file(File.join(__dir__, 'medication_request', 'metadata.yml'), aliases: true)
+        )
       end
-  
+
       test from: :smp_v100_medication_request_patient_search_test
       test from: :smp_v100_medication_request_read_test
       test from: :smp_v100_medication_request_validation_test

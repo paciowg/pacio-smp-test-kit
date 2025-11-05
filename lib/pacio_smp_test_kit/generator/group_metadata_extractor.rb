@@ -147,7 +147,7 @@ module PacioSMPTestKit
         title
       end
 
-      def short_description
+      def short_description 
         "Verify support for the server capabilities required by the #{profile_name}."
       end
 
