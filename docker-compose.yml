@@ -1,4 +1,3 @@
-version: '3'
 services:
   inferno:
     build:
@@ -15,10 +14,6 @@ services:
     command: bundle exec sidekiq -r ./worker.rb
     depends_on:
       - redis
-  fhir_validator_app:
-    extends:
-      file: docker-compose.background.yml
-      service: fhir_validator_app
   nginx:
     extends:
       file: docker-compose.background.yml

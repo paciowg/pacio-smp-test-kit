@@ -1,28 +1,4 @@
-version: '3'
 services:
-  fhir_validator_app:
-    image: infernocommunity/fhir-validator-app
-    depends_on:
-      - hl7_validator_service
-    environment:
-      EXTERNAL_VALIDATOR_URL: http://localhost/validatorapi
-      VALIDATOR_BASE_PATH: /validator
-  nginx:
-    image: nginx
-    volumes:
-      - ./config/nginx.background.conf:/etc/nginx/nginx.conf
-    ports:
-      - "80:80"
-    command: [ nginx, '-g', 'daemon off;' ]
-    depends_on:
-      - fhir_validator_app
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./data/redis:/data
-    command: redis-server --appendonly yes
   hl7_validator_service:
     image: infernocommunity/inferno-resource-validator
     environment:
@@ -30,11 +6,27 @@ services:
       # Negative values mean sessions never expire, 0 means sessions immediately expire
       SESSION_CACHE_DURATION: -1
     volumes:
-      - ./data/igs:/app/igs
-  # To let the service share your local FHIR package cache,
-  # uncomment the below line
-  # - ~/.fhir:/home/ktor/.fhir
+      - ./lib/qi_core_test_kit/igs:/app/igs
+      # To let the service share your local FHIR package cache,
+      # uncomment the below line
+      # - ~/.fhir:/home/ktor/.fhir
   fhirpath:
     image: infernocommunity/fhirpath-service
     ports:
       - "6789:6789"
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx.background.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    command: [nginx, '-g', 'daemon off;']
+    depends_on:
+      - fhirpath
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    command: redis-server --appendonly yes

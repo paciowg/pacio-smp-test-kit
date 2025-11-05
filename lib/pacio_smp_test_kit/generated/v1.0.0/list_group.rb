@@ -3,6 +3,8 @@ require_relative 'list/list_code_search_test'
 require_relative 'list/list_read_test'
 require_relative 'list/list_validation_test'
 require_relative 'list/list_must_support_test'
+require_relative '../../custom_groups/v1.0.0/operation_retrieve_test'
+require_relative '../../custom_groups/v1.0.0/operation_submit_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -75,6 +77,8 @@ read succeeds.
       test from: :smp_v100_list_read_test
       test from: :smp_v100_list_validation_test
       test from: :smp_v100_list_must_support_test
+      test from: :smp_v100_operation_retrieve_test, optional: true
+      test from: :smp_v100_operation_submit_test, optional: true
     end
   end
 end

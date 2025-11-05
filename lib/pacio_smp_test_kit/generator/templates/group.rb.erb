@@ -1,4 +1,6 @@
 <% test_file_list.each do |file_name| %>require_relative '<%= file_name %>'
+<% end %><% if class_name == 'ListGroup' %>require_relative '../../custom_groups/v1.0.0/operation_retrieve_test'
+require_relative '../../custom_groups/v1.0.0/operation_submit_test'
 <% end %>
 module PacioSMPTestKit
   module <%= module_name %>
@@ -18,7 +20,9 @@ module PacioSMPTestKit
         @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, '<%= profile_identifier %>', 'metadata.yml'), aliases: true))
       end
   <% test_id_list.each do |id| %>
-      test from: :<%= id %><% end %>
+      test from: :<%= id %><% end %><% if class_name == 'ListGroup' %>
+      test from: :smp_v100_operation_retrieve_test, optional: true
+      test from: :smp_v100_operation_submit_test, optional: true<% end %>
     end
   end
 end
