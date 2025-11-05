@@ -1,7 +1,7 @@
 require 'us_core_test_kit/must_support_test'
 
-module QICoreTestKit
-  module QICoreV100
+module PacioSMPTestKit
+  module PacioSMPV100
     class BundleMustSupportTest < Inferno::Test
       include USCoreTestKit::MustSupportTest
 
@@ -27,7 +27,7 @@ module QICoreTestKit
         * Bundle.type
       )
 
-      id :qi_core_v100_bundle_must_support_test
+      id :smp_v100_bundle_must_support_test
 
       def resource_type
         'Bundle'

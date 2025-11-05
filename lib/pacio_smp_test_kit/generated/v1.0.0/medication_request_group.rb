@@ -71,7 +71,7 @@ read succeeds.
       test from: :smp_v100_medication_request_patient_search_test
       test from: :smp_v100_medication_request_read_test
       test from: :smp_v100_medication_request_validation_test
-      test from: :qi_core_v100_medication_request_must_support_test
+      test from: :smp_v100_medication_request_must_support_test
     end
   end
 end

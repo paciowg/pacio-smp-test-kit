@@ -74,7 +74,7 @@ read succeeds.
       test from: :smp_v100_list_code_search_test
       test from: :smp_v100_list_read_test
       test from: :smp_v100_list_validation_test
-      test from: :qi_core_v100_list_must_support_test
+      test from: :smp_v100_list_must_support_test
     end
   end
 end

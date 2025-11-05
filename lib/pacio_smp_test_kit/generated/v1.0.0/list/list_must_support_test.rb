@@ -1,7 +1,7 @@
 require 'us_core_test_kit/must_support_test'
 
-module QICoreTestKit
-  module QICoreV100
+module PacioSMPTestKit
+  module PacioSMPV100
     class ListMustSupportTest < Inferno::Test
       include USCoreTestKit::MustSupportTest
 
@@ -16,7 +16,7 @@ module QICoreTestKit
         * List.subject
       )
 
-      id :qi_core_v100_list_must_support_test
+      id :smp_v100_list_must_support_test
 
       def resource_type
         'List'

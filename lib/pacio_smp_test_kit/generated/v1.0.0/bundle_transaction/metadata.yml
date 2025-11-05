@@ -157,7 +157,7 @@
   :file_name: bundle_transaction_read_test.rb
 - :id: smp_v100_bundle_transaction_validation_test
   :file_name: bundle_transaction_validation_test.rb
-- :id: qi_core_v100_bundle_transaction_must_support_test
+- :id: smp_v100_bundle_transaction_must_support_test
   :file_name: bundle_transaction_must_support_test.rb
 :id: smp_v100_bundle_transaction
 :file_name: bundle_transaction_group.rb

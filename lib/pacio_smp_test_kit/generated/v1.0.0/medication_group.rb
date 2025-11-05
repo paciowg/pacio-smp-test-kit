@@ -51,7 +51,7 @@ read succeeds.
   
       test from: :smp_v100_medication_read_test
       test from: :smp_v100_medication_validation_test
-      test from: :qi_core_v100_medication_must_support_test
+      test from: :smp_v100_medication_must_support_test
     end
   end
 end

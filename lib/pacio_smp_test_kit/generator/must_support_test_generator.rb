@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 require 'us_core_test_kit/generator/must_support_test_generator'
-
 require_relative 'naming'
-require_relative 'special_cases'
 
 module PacioSMPTestKit
   class Generator
@@ -24,7 +22,7 @@ module PacioSMPTestKit
       end
 
       def test_id
-        "qi_core_#{group_metadata.reformatted_version}_#{profile_identifier}_must_support_test"
+        "smp_#{group_metadata.reformatted_version}_#{profile_identifier}_must_support_test"
       end
 
       def class_name
@@ -32,7 +30,7 @@ module PacioSMPTestKit
       end
 
       def module_name
-        "QICore#{group_metadata.reformatted_version.upcase}"
+        "PacioSMP#{group_metadata.reformatted_version.upcase}"
       end
 
       # def qmcm_list_string
