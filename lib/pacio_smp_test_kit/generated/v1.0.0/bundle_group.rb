@@ -5,14 +5,14 @@ require_relative 'bundle/bundle_must_support_test'
 module PacioSMPTestKit
   module PacioSMPV100
     class BundleGroup < Inferno::TestGroup
-      title 'Bundle Standardized Medication - Medication List Tests'
+      title 'Standardized Medication - Bundle Medication List Tests'
       short_description <<~DESC
         'Verify support for the server capabilities required by the Standardized Medication Profile - Bundle Medication List.'
       DESC
       description %(
 # Background
 
-The SMP Bundle Standardized Medication - Medication List sequence verifies that the system under test is
+The SMP Standardized Medication - Bundle Medication List sequence verifies that the system under test is
 able to provide correct responses for Bundle queries. These queries
 must contain resources conforming to the Standardized Medication Profile - Bundle Medication List as
 specified in the SMP v1.0.0 Implementation Guide.
