@@ -13,9 +13,9 @@ module PacioSMPTestKit
 
       description %(
 This test verifies resources returned from the first search conform to
-the [Standardized Medication Profile - MedicationStatement profile](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement).
-
+the [Standardized Medication Profile - MedicationStatement](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement).
 Systems must demonstrate at least one valid example in order to pass this test.
+
 It verifies the presence of mandatory elements and that elements with
 required bindings contain appropriate values. CodeableConcept element
 bindings will fail if none of their codings have a code/system belonging

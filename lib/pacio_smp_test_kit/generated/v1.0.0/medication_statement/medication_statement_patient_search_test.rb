@@ -15,7 +15,7 @@ none are returned, the test is skipped.
 
 This test verifies that the server supports searching by reference using
 the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-different forms are expected to return the same number of results. 
+different forms are expected to return the same number of results.
 
 Because this is the first search of the sequence, resources in the
 response will be used for subsequent tests.

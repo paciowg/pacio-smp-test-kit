@@ -34,6 +34,7 @@ module PacioSMPTestKit
       def module_name
         "PacioSMP#{group_metadata.reformatted_version.upcase}"
       end
+
       def generate
         FileUtils.mkdir_p(output_file_directory)
         File.write(output_file_name, output)
@@ -44,20 +45,6 @@ module PacioSMPTestKit
         }
 
         group_metadata.add_test(**test_metadata)
-      end
-
-      def description
-        <<~DESCRIPTION
-          This test verifies resources returned from the first search conform to
-          the [#{profile_name} profile](#{profile_url}).
-
-          Systems must demonstrate at least one valid example in order to pass this test.
-          It verifies the presence of mandatory elements and that elements with
-          required bindings contain appropriate values. CodeableConcept element
-          bindings will fail if none of their codings have a code/system belonging
-          to the bound ValueSet. Quantity, Coding, and code element bindings will
-          fail if their code/system are not found in the valueset.
-        DESCRIPTION
       end
     end
   end

@@ -12,10 +12,9 @@ module PacioSMPTestKit
       DESC
 
       description %(
-This test verifies resources returned from the first search conform to
-the [Standardized Medication Profile - Medication profile](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication).
+This test verifies resources returned from previous tests conform to
+the [Standardized Medication Profile - Medication](http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication).
 
-Systems must demonstrate at least one valid example in order to pass this test.
 It verifies the presence of mandatory elements and that elements with
 required bindings contain appropriate values. CodeableConcept element
 bindings will fail if none of their codings have a code/system belonging

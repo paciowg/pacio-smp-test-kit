@@ -1,5 +1,4 @@
 require 'us_core_test_kit/generator/must_support_metadata_extractor'
-require_relative 'value_extractor'
 
 module PacioSMPTestKit
   class Generator

@@ -4,7 +4,6 @@ require_relative 'group_metadata'
 require_relative 'ig_metadata'
 require_relative 'must_support_metadata_extractor'
 require_relative 'search_metadata_extractor'
-require_relative 'terminology_binding_metadata_extractor'
 require_relative 'naming'
 
 module PacioSMPTestKit
@@ -63,11 +62,6 @@ module PacioSMPTestKit
             must_supports: must_supports
           }
         )
-      end
-
-      def terminology_binding_metadata_extractor
-        @terminology_binding_metadata_extractor ||=
-          TerminologyBindingMetadataExtractor.new(profile_elements, ig_resources, resource)
       end
 
       def must_support_metadata_extractor

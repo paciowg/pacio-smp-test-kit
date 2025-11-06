@@ -38,7 +38,7 @@ module PacioSMPTestKit
         <<~REFERENCE_SEARCH_DESCRIPTION
           This test verifies that the server supports searching by reference using
           the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-          different forms are expected to return the same number of results. 
+          different forms are expected to return the same number of results.
         REFERENCE_SEARCH_DESCRIPTION
       end
 

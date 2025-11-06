@@ -13,9 +13,9 @@ module PacioSMPTestKit
 
       description %(
 This test verifies resources returned from the first search conform to
-the [US Core Patient Profile profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient).
-
+the [US Core Patient Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient).
 Systems must demonstrate at least one valid example in order to pass this test.
+
 It verifies the presence of mandatory elements and that elements with
 required bindings contain appropriate values. CodeableConcept element
 bindings will fail if none of their codings have a code/system belonging
