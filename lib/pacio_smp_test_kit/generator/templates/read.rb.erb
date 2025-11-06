@@ -8,11 +8,8 @@ module PacioSMPTestKit
       title 'Server returns correct <%= resource_type %> resource from <%= resource_type %> read interaction'
       description 'A server <%= conformance_expectation %> support the <%= resource_type %> read interaction.'
 
-      id :<%= test_id %><% if needs_patient_id? %>
-      input :patient_ids,
-            title: 'Patient IDs',
-            description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
-<% end %>
+      id :<%= test_id %>
+
       def resource_type
         '<%= resource_type %>'
       end

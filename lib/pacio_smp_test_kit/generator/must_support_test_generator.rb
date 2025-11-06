@@ -32,55 +32,6 @@ module PacioSMPTestKit
       def module_name
         "PacioSMP#{group_metadata.reformatted_version.upcase}"
       end
-
-      # def qmcm_list_string
-      #   build_must_support_list_string(true)
-      # end
-
-      # def build_must_support_list_string(qicore_qmcm)
-      #   slice_names = group_metadata.must_supports[:slices]
-      #     .select { |slice| slice[:qicore_qmcm].presence == qicore_qmcm.presence}
-      #     .map { |slice| slice[:slice_id] }
-
-      #   element_names = group_metadata.must_supports[:elements]
-      #     .select { |element| element[:qicore_qmcm].presence == qicore_qmcm.presence}
-      #     .map { |element| "#{resource_type}.#{element[:path]}" }
-
-      #   extension_names = group_metadata.must_supports[:extensions]
-      #     .select { |extension| extension[:qicore_qmcm].presence == qicore_qmcm.presence}
-      #     .map { |extension| extension[:id] }
-
-      #   choice_names = []
-      #   group_metadata.must_supports[:choices]&.map do |choice|
-      #     next unless choice[:qicore_qmcm].presence == qicore_qmcm.presence
-
-      #     combined = []
-      #     if choice.key?(:paths)
-      #       choice[:paths].each { |path| element_names.delete("#{resource_type}.#{path}") }
-      #       combined << choice[:paths].map { |path| "#{resource_type}.#{path}" }.join(' or ')
-      #     end
-
-      #     if choice.key?(:extension_ids)
-      #       choice[:extension_ids].each { |extesnion_id| extension_names.delete(extesnion_id) }
-      #       combined << choice[:extension_ids].join(' or ')
-      #     end
-
-      #     if choice.key?(:elements)
-      #       choice[:elements].each { |element| element_names.delete("#{resource_type}.#{element[:path]}") }
-      #       combined << choice[:elements].map { |element|
-      #         "#{resource_type}.#{element[:path]}:#{element[:fixed_value]}"
-      #       }.join(' or ')
-      #     end
-
-      #     choice_names << combined.join(' or ') if combined.any?
-      #   end || []
-
-      #   (slice_names + element_names + extension_names + choice_names)
-      #     .uniq
-      #     .sort
-      #     .map { |name| "#{' ' * 8}* #{name}" }
-      #     .join("\n")
-      # end
     end
   end
 end

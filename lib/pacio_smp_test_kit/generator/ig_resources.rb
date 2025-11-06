@@ -14,11 +14,6 @@ module PacioSMPTestKit
 
         id_match || resources_by_type['SearchParameter'].find { |param| param.name == name }
       end
-
-      #TODO: remove 
-      def search_parameters
-        resources_by_type['SearchParameter']
-      end
     end
   end
 end

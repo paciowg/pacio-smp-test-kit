@@ -9,6 +9,7 @@ module PacioSMPTestKit
       description 'A server SHOULD support the MedicationAdministration read interaction.'
 
       id :smp_v100_medication_administration_read_test
+
       def resource_type
         'MedicationAdministration'
       end

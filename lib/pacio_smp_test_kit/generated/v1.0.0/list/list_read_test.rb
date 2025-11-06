@@ -9,6 +9,7 @@ module PacioSMPTestKit
       description 'A server SHALL support the List read interaction.'
 
       id :smp_v100_list_read_test
+
       def resource_type
         'List'
       end

@@ -9,6 +9,7 @@ module PacioSMPTestKit
       description 'A server SHOULD support the MedicationRequest read interaction.'
 
       id :smp_v100_medication_request_read_test
+
       def resource_type
         'MedicationRequest'
       end
