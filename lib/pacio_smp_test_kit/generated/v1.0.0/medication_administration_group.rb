@@ -6,14 +6,14 @@ require_relative 'medication_administration/medication_administration_must_suppo
 module PacioSMPTestKit
   module PacioSMPV100
     class MedicationAdministrationGroup < Inferno::TestGroup
-      title 'Standardized Medication - MedicationAdministration Tests'
+      title 'MedicationAdministration Tests'
       short_description <<~DESC
         'Verify support for the server capabilities required by the Standardized Medication Profile - MedicationAdministration.'
       DESC
       description %(
 # Background
 
-The SMP Standardized Medication - MedicationAdministration sequence verifies that the system under test is
+The SMP MedicationAdministration sequence verifies that the system under test is
 able to provide correct responses for MedicationAdministration queries. These queries
 must contain resources conforming to the Standardized Medication Profile - MedicationAdministration as
 specified in the SMP v1.0.0 Implementation Guide.

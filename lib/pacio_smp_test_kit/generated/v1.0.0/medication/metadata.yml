@@ -7,7 +7,7 @@
 :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
 :profile_name: Standardized Medication Profile - Medication
 :profile_version: 1.0.0
-:title: Standardized Medication - Medication
+:title: Medication
 :short_description: Verify support for the server capabilities required by the Standardized
   Medication Profile - Medication.
 :is_delayed: true

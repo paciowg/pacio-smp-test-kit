@@ -41,7 +41,6 @@ module PacioSMPTestKit
         @group_metadata_hash
       end
 
-
       def class_name
         base_name
           .split('-')
@@ -49,6 +48,17 @@ module PacioSMPTestKit
           .join
           .gsub('SMP', "SMP#{ig_metadata.reformatted_version}")
           .concat('Sequence')
+      end
+
+      def title
+        title = profile.title.gsub(/Standardized\s*Medication\s*Profile\s*-/, '').strip
+        title = title.gsub(/US\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
+
+        if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource) && version != 'v3.1.1'
+          title = resource + ' ' + title.split(resource).map(&:strip).join(' ')
+        end
+
+        title
       end
 
       def search_metadata_extractor

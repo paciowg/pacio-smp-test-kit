@@ -9,14 +9,14 @@ require_relative '../../custom_groups/v1.0.0/operation_submit_test'
 module PacioSMPTestKit
   module PacioSMPV100
     class ListGroup < Inferno::TestGroup
-      title 'Standardized Medication - Medication List Tests'
+      title 'Medication List Tests'
       short_description <<~DESC
         'Verify support for the server capabilities required by the Standardized Medication Profile - Medication List.'
       DESC
       description %(
 # Background
 
-The SMP Standardized Medication - Medication List sequence verifies that the system under test is
+The SMP Medication List sequence verifies that the system under test is
 able to provide correct responses for List queries. These queries
 must contain resources conforming to the Standardized Medication Profile - Medication List as
 specified in the SMP v1.0.0 Implementation Guide.

@@ -9,7 +9,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-list
   :profile_name: Standardized Medication Profile - Medication List
   :profile_version: 1.0.0
-  :title: Standardized Medication - Medication List
+  :title: Medication List
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Medication List.
   :is_delayed: false
@@ -105,7 +105,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
   :profile_name: Standardized Medication Profile - MedicationStatement
   :profile_version: 1.0.0
-  :title: Standardized Medication - MedicationStatement
+  :title: MedicationStatement
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - MedicationStatement.
   :is_delayed: false
@@ -190,7 +190,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
   :profile_name: Standardized Medication Profile - Medication
   :profile_version: 1.0.0
-  :title: Standardized Medication - Medication
+  :title: Medication
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Medication.
   :is_delayed: true
@@ -414,7 +414,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
   :profile_name: Standardized Medication Profile - MedicationAdministration
   :profile_version: 1.0.0
-  :title: Standardized Medication - MedicationAdministration
+  :title: MedicationAdministration
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - MedicationAdministration.
   :is_delayed: false
@@ -624,7 +624,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle
   :profile_name: Standardized Medication Profile - Bundle Medication List
   :profile_version: 1.0.0
-  :title: Standardized Medication - Bundle Medication List
+  :title: Bundle Medication List
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Bundle Medication List.
   :is_delayed: true
@@ -800,7 +800,7 @@
   :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction
   :profile_name: Standardized Medication Profile - Bundle Medication List Maintenance
   :profile_version: 1.0.0
-  :title: Standardized Medication - Bundle Medication List Maintenance
+  :title: Bundle Medication List Maintenance
   :short_description: Verify support for the server capabilities required by the Standardized
     Medication Profile - Bundle Medication List Maintenance.
   :is_delayed: true
