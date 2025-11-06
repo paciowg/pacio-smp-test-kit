@@ -38,18 +38,8 @@ module PacioSMPTestKit
         <<~REFERENCE_SEARCH_DESCRIPTION
           This test verifies that the server supports searching by reference using
           the form `patient=[id]` as well as `patient=Patient/[id]`. The two
-          different forms are expected to return the same number of results. US
-          Core requires that both forms are supported by US Core responders.
+          different forms are expected to return the same number of results. 
         REFERENCE_SEARCH_DESCRIPTION
-      end
-
-      def first_search_description
-        return '' unless first_search?
-
-        <<~FIRST_SEARCH_DESCRIPTION
-          Because this is the first search of the sequence, resources in the
-          response will be used for subsequent tests.
-        FIRST_SEARCH_DESCRIPTION
       end
 
       def post_search_description
