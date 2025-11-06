@@ -46,6 +46,7 @@ read succeeds.
 
       id :smp_v100_bundle_transaction
       run_as_group
+      optional
 
       def self.metadata
         @metadata ||= Generator::GroupMetadata.new(

@@ -73,13 +73,8 @@ module PacioSMPTestKit
            }
       test from: :smp_conformance_support
       test from: :smp_fhir_version
-      # test from: :smp_json_support
+      test from: :smp_json_support
       test from: :smp_instantiate
-      # test from: :smp_profile_support do
-      #   config(
-      #     options: { smp_profiles: PROFILES.values.flatten }
-      #   )
-      # end
     end
   end
 end

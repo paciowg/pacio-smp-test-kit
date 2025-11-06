@@ -15,8 +15,7 @@ module PacioSMPTestKit
 
       id :<%= group_id %>
       run_as_group<% if optional? %>
-      optional
-      <% end %>
+      optional<% end %>
 
       def self.metadata
         @metadata ||= Generator::GroupMetadata.new(

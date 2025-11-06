@@ -19,4 +19,3 @@ group :test do
   gem 'webmock', '~> 3.11'
 end
 
-gem 'us_core_test_kit'

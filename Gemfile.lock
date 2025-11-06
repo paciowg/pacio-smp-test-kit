@@ -396,7 +396,6 @@ DEPENDENCIES
   rubocop (~> 1.9)
   rubocop-rspec
   simplecov (= 0.21.2)
-  us_core_test_kit
   webmock (~> 3.11)
 
 BUNDLED WITH
