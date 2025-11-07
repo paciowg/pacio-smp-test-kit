@@ -11,8 +11,12 @@ module PacioSMPTestKit
       id :smp_v100_bundle_transaction_read_test
 
       input :bundle_transaction_resource_ids,
-            title: 'ID(s) for resources present on the server.',
-            description: 'Comma separated list of ids that in sum contain all MUST SUPPORT elements'
+            title: 'ID(s) for Bundle Medication List Maintenance resources present on the server.',
+            description: %(
+              Comma separated list of Bundle Medication List Maintenance ids that in sum contain
+              all MUST SUPPORT elements
+            ),
+            optional: true
 
       def resource_type
         'Bundle'

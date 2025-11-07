@@ -45,6 +45,14 @@ module PacioSMPTestKit
         "#{profile_identifier}_resource_ids"
       end
 
+      def optional_profile?
+        SpecialCases::OPTIONAL_RESOURCES.include?(resource_type) || group_metadata.optional_profile?
+      end
+
+      def group_title
+        group_metadata.title
+      end
+
       def resource_collection_string
         if input_resource_id?
           "all_scratch_resources, resource_ids: #{resource_id_input_string}"

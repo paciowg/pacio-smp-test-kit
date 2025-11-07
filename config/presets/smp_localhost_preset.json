@@ -12,10 +12,11 @@
     },
     {
       "name": "patient_ids",
-      "type": "text",
-      "title": "Patient IDs",
-      "description": "Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements",
       "value": "patient-betsysmith-johnson01"
+    },
+    {
+      "name": "bundle_resource_ids",
+      "value": "betsysmith-johnson01-SMP-Bundle-03-PCP"
     }
   ]
 }

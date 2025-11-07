@@ -11,8 +11,12 @@ module PacioSMPTestKit
       id :<%= test_id %>
 <% if input_resource_id? %>
       input :<%= resource_id_input_string %>,
-            title: 'ID(s) for resources present on the server.',
-            description: 'Comma separated list of ids that in sum contain all MUST SUPPORT elements'
+            title: 'ID(s) for <%= group_title %> resources present on the server.',
+            description: %(
+              Comma separated list of <%= group_title %> ids that in sum contain
+              all MUST SUPPORT elements
+            )<% if optional_profile? %>,
+            optional: true<% end %>
 <% end %>
       def resource_type
         '<%= resource_type %>'
