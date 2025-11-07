@@ -3,7 +3,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
   let(:suite_id) { 'smp_v100' }
   let(:group) { suite.groups.find { |g| g.id.include?(described_class.id) } }
   let(:url) { 'http://example.com/fhir' }
-  let(:patient_id) { 'abc123' }
+  let(:patient_id) { 'patient-1' }
   let(:patient) do
     FHIR::Patient.new(id: patient_id)
   end
@@ -44,7 +44,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
       stub_request(:get, "#{url}/Patient/#{patient_id}")
         .to_return(status: 200, body: patient.to_json)
 
-      result = run(test, url: url, patient_ids: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('pass'), result.result_message
     end
@@ -53,7 +53,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
       stub_request(:get, "#{url}/Patient/#{patient_id}")
         .to_return(status: 400, body: patient.to_json)
 
-      result = run(test, url: url, patient_ids: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('fail'), result.result_message
       expect(result.result_message).to match(/200/)
@@ -64,7 +64,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
       stub_request(:get, "#{url}/Patient/#{patient_id}")
         .to_return(status: 200, body: resource.to_json)
 
-      result = run(test, url: url, patient_ids: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('fail'), result.result_message
       expect(result.result_message).to match(/resource to have id/)

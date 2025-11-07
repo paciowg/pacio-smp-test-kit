@@ -1,14 +1,18 @@
-require 'us_core_test_kit/read_test'
+require_relative '../../../read_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class BundleReadTest < Inferno::Test
-      include USCoreTestKit::ReadTest
+      include PacioSMPTestKit::ReadTest
 
       title 'Server returns correct Bundle resource from Bundle read interaction'
       description 'A server MAY support the Bundle read interaction.'
 
       id :smp_v100_bundle_read_test
+
+      input :bundle_resource_ids,
+            title: 'ID(s) for resources present on the server.',
+            description: 'Comma separated list of ids that in sum contain all MUST SUPPORT elements'
 
       def resource_type
         'Bundle'
@@ -19,7 +23,7 @@ module PacioSMPTestKit
       end
 
       run do
-        perform_read_test(scratch.dig(:references, 'Bundle'), delayed_reference: true)
+        perform_read_test(all_scratch_resources, resource_ids: bundle_resource_ids)
       end
     end
   end

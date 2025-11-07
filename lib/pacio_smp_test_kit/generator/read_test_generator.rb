@@ -1,5 +1,6 @@
 require 'us_core_test_kit/generator/read_test_generator'
 require_relative 'naming'
+require_relative 'special_cases'
 
 module PacioSMPTestKit
   class Generator
@@ -35,6 +36,24 @@ module PacioSMPTestKit
       def module_name
         "PacioSMP#{group_metadata.reformatted_version.upcase}"
       end
+
+      def input_resource_id?
+        SpecialCases::PROFILES_NEED_ID_INPUT.include?(profile_identifier)
+      end
+
+      def resource_id_input_string
+        "#{profile_identifier}_resource_ids"
+      end
+
+      def resource_collection_string
+        if input_resource_id?
+          "all_scratch_resources, resource_ids: #{resource_id_input_string}"
+        elsif group_metadata.delayed? && resource_type != 'Provenance'
+          "scratch.dig(:references, '#{resource_type}'), delayed_reference: true"
+        else
+          'all_scratch_resources'
+        end
+      end      
     end
   end
 end
