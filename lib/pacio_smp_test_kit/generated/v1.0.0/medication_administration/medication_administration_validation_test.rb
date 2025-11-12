@@ -8,7 +8,7 @@ module PacioSMPTestKit
       id :smp_v100_medication_administration_validation_test
 
       title <<~DESC
-        'MedicationAdministration resources returned during previous tests conform to the Standardized Medication Profile - MedicationAdministration'
+        MedicationAdministration resources returned during previous tests conform to the Standardized Medication Profile - MedicationAdministration
       DESC
 
       description %(

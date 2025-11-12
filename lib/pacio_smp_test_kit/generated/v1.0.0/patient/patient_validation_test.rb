@@ -8,7 +8,7 @@ module PacioSMPTestKit
       id :smp_v100_patient_validation_test
 
       title <<~DESC
-        'Patient resources returned during previous tests conform to the US Core Patient Profile'
+        Patient resources returned during previous tests conform to the US Core Patient Profile
       DESC
 
       description %(
