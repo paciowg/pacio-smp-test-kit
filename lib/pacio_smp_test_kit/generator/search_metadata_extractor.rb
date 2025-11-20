@@ -7,9 +7,13 @@ module PacioSMPTestKit
       def basic_searches
         result = super
         
-        if resource_capabilities.type == 'Patient' 
+        case resource_capabilities.type
+        when 'Patient' 
           result << { names: ['_id'], expectation: 'SHALL' }
-        elsif ['MedicationAdministration', 'MedicationRequest', 'MedicationStatement'].include?(resource_capabilities.type)
+        when 'List'
+          result.clear
+          result << { names: ['patient', 'code'], expectation: 'SHALL' }     
+        when 'MedicationAdministration', 'MedicationRequest', 'MedicationStatement'
           result << { names: ['patient'], expectation: 'SHALL' }
         end
         

@@ -26,8 +26,6 @@
 :searches:
 - :names:
   - patient
-  :expectation: SHALL
-- :names:
   - code
   :expectation: SHALL
 :search_definitions:
@@ -47,7 +45,15 @@
     :full_paths:
     - List.code
     :comparators: {}
-    :values: []
+    :values:
+    - 104202-7
+    - 104203-5
+    - 104204-3
+    - 104205-0
+    - 104206-8
+    - 104207-6
+    - 104208-4
+    - 104209-2
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
@@ -95,10 +101,8 @@
   :profiles:
   - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement
 :tests:
-- :id: smp_v100_list_patient_search_test
-  :file_name: list_patient_search_test.rb
-- :id: smp_v100_list_code_search_test
-  :file_name: list_code_search_test.rb
+- :id: smp_v100_list_patient_code_search_test
+  :file_name: list_patient_code_search_test.rb
 - :id: smp_v100_list_read_test
   :file_name: list_read_test.rb
 - :id: smp_v100_list_validation_test

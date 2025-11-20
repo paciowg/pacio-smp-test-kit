@@ -1,5 +1,4 @@
-require_relative 'list/list_patient_search_test'
-require_relative 'list/list_code_search_test'
+require_relative 'list/list_patient_code_search_test'
 require_relative 'list/list_read_test'
 require_relative 'list/list_validation_test'
 require_relative 'list/list_must_support_test'
@@ -27,8 +26,7 @@ This test sequence will first perform each required search associated
 with this resource. This sequence will perform searches with the
 following parameters:
 
-* patient
-* code
+* patient + code
 
 ### Search Parameters
 The first search uses the selected patient(s) from the prior launch
@@ -81,8 +79,7 @@ read succeeds.
         )
       end
 
-      test from: :smp_v100_list_patient_search_test
-      test from: :smp_v100_list_code_search_test
+      test from: :smp_v100_list_patient_code_search_test
       test from: :smp_v100_list_read_test
       test from: :smp_v100_list_validation_test
       test from: :smp_v100_list_must_support_test
