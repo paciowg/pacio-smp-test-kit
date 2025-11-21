@@ -54,8 +54,8 @@ module PacioSMPTestKit
         title = profile.title.gsub(/Standardized\s*Medication\s*Profile\s*-/, '').strip
         title = title.gsub(/US\s*Core\s*/, '').gsub(/\s*Profile/, '').strip
 
-        if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource) && version != 'v3.1.1'
-          title = resource + ' ' + title.split(resource).map(&:strip).join(' ')
+        if Naming.resources_with_multiple_profiles.include?(resource) && !title.start_with?(resource)
+          title = "#{resource} #{title.split(resource).map(&:strip).join(' ')}"
         end
 
         title

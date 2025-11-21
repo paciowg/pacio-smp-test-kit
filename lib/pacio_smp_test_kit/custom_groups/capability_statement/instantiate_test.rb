@@ -1,7 +1,7 @@
 module PacioSMPTestKit
   class InstantiateTest < Inferno::Test
     id :smp_instantiate
-    title 'Server instantiates US Core Server'
+    title 'Server instantiates PACIO SMP Server'
     description %(
         This test inspects the CapabilityStatement returned by the server to
         verify that the server instantiates http://hl7.org/fhir/us/smp/CapabilityStatement/smp-server
