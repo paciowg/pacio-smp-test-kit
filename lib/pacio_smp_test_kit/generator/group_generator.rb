@@ -33,10 +33,6 @@ module PacioSMPTestKit
         "smp_#{group_metadata.reformatted_version}_#{profile_identifier}"
       end
 
-      def search_validation_resource_type
-        "#{resource_type} resources"
-      end
-
       def optional?
         SpecialCases::OPTIONAL_RESOURCES.include?(resource_type) || group_metadata.optional_profile?
       end

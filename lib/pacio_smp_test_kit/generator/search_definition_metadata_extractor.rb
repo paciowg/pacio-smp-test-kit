@@ -6,6 +6,8 @@ module PacioSMPTestKit
       def full_paths
         @full_paths ||=
           begin
+            # SMP#1.0.0 uses general search parameters defined in FHIR base spec. 
+            # This line is to locate the path related to the resource type.
             path = param.expression.match(/\b#{Regexp.escape(resource)}\.[^|]+/)&.to_s.strip
             path = path.gsub(/.where\(resolve\((.*)/, '').gsub(/url = '/, 'url=\'')
             path = path[1..-2] if path.start_with?('(') && path.end_with?(')')
