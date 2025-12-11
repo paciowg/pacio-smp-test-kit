@@ -26,7 +26,7 @@ module PacioSMPTestKit
       end
 
       def title
-        "Pacio SMP Server #{ig_metadata.ig_version}"
+        "PACIO SMP Server #{ig_metadata.ig_version}"
       end
 
       def ig_identifier

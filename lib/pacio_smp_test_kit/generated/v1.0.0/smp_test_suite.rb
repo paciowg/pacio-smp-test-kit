@@ -13,7 +13,7 @@ require_relative 'bundle_transaction_group'
 module PacioSMPTestKit
   module PacioSMPV100
     class PacioSMPTestSuite < Inferno::TestSuite
-      title 'Pacio SMP Server v1.0.0'
+      title 'PACIO SMP Server v1.0.0'
       description %(
         The Pacio SMP Server Test Kit tests server systems for their conformance to the [Pacio SMP
         Implementation Guide](http://hl7.org/fhir/us/smp/STU1).
