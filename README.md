@@ -7,11 +7,73 @@ for FHIR testing.
 
 The quickest way to run this test kit locally is with [Docker](https://www.docker.com/).
 
-- Install Docker
-- Clone this repository, or download an [official release](/releases) if available.
-- Run `./setup.sh` within the test kit directory to download necessary dependencies
-- Run `./run.sh` within the test kit directory to start the application
-- Navigate to `http://localhost`
+- Install [Docker](https://www.docker.com/). 
+
+- Clone this repository. 
+  ```
+  git clone https://github.com/paciowg/pacio-smp-test-kit.git
+  ```
+  or
+  ```
+  git clone git@github.com:paciowg/pacio-smp-test-kit.git
+  ```
+
+- **Temporary step:** Switch to the `generator` branch for the latest updates:
+  ```
+  git checkout generator
+  ```
+
+### Running the Test Kit
+
+- Run `./setup.sh` in the test kit directory to download and install all required dependencies  
+  *(e.g., Inferno modules, Ruby gems, configuration files).*
+
+- Run `./run.sh` in the test kit directory to start the Inferno application.  
+  After launch, you should see a message indicating that the server is running.
+
+- Open a browser and navigate to `http://localhost`.
+
+  > If the page does not load, confirm that Docker is running and the `run.sh` script completed successfully.
+
+- In the **Test Suites** list, select **Pacio SMP Test Kit v1.0.0**, then click the **SELECT SUITE** button.
+
+- On the **Pacio SMP Server v1.0.0** Inferno test suite page, click the **RUN ALL TESTS** tab in the top-right corner.
+
+- When the parameter dialog appears, enter the following configuration values:
+
+  - **FHIR Endpoint (required):**  
+    The base URL where FHIR data are accessible.
+
+  - **OAuth Credentials (optional):**  
+    The PACIO SMP test kit does *not* support SMART App Launch.  
+    If the server requires an access token, provide it so Inferno can read FHIR resources.
+
+  - **Patient IDs (required):**  
+    One or more Patient resource IDs, separated by commas.
+
+  - **FHIR Parameter resources for `$smp-query` and `$smp-submit` (optional):**  
+    These operations are not required to be supported by the server.  
+    If Parameter resources are provided:
+    - Inferno will send operation requests with the supplied parameter values.
+    - Inferno will confirm whether the server accepts the request and returns a valid response.
+
+  - **Bundle IDs (optional):**  
+    One or more Bundle resource IDs, separated by commas.  
+    These inputs are optional because the **Bundle Medication List** and **Bundle Medication List Maintenance** profiles are *not* required by the SMP IG.  
+    If IDs are supplied, Inferno will:
+    - attempt to read the Bundle resources  
+    - validate conformance to the appropriate Bundle profiles
+
+- Click **SUBMIT** in the bottom-right corner to begin Inferno testing.
+
+- Testing may take several minutes depending on:
+  - the number of resources returned by the server,
+  - server performance,
+  - network speed.
+
+  A progress bar and test-by-test output will appear during execution.
+
+
 
 ## Instructions for Developing Your Test Kit
 
