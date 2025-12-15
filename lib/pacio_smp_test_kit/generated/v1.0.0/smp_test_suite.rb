@@ -15,7 +15,7 @@ module PacioSMPTestKit
     class PacioSMPTestSuite < Inferno::TestSuite
       title 'PACIO SMP Server v1.0.0'
       description %(
-        The Pacio SMP Server Test Kit tests server systems for their conformance to the [Pacio SMP
+        The PACIO SMP Server Test Kit tests server systems for their conformance to the [PACIO SMP
         Implementation Guide](http://hl7.org/fhir/us/smp/STU1).
       )
 

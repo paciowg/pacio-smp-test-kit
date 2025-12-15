@@ -49,7 +49,7 @@ module PacioSMPTestKit
           Additionally, this test will check that GET and POST search methods
           return the same number of results. Search by POST is required by the
           FHIR R4 specification, and these tests interpret search by GET as a
-          requirement of Pacio SMP #{group_metadata.version}.
+          requirement of PACIO SMP #{group_metadata.version}.
         POST_SEARCH_DESCRIPTION
       end
 
@@ -64,7 +64,7 @@ module PacioSMPTestKit
           #{first_search_description}
           #{post_search_description}
 
-          [Pacio SMP Server CapabilityStatement](#{ig_link}/CapabilityStatement-smp-server.html)
+          [PACIO SMP Server CapabilityStatement](#{ig_link}/CapabilityStatement-smp-server.html)
         DESCRIPTION
       end
     end

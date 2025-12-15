@@ -19,9 +19,9 @@ response will be used for subsequent tests.
 Additionally, this test will check that GET and POST search methods
 return the same number of results. Search by POST is required by the
 FHIR R4 specification, and these tests interpret search by GET as a
-requirement of Pacio SMP v1.0.0.
+requirement of PACIO SMP v1.0.0.
 
-[Pacio SMP Server CapabilityStatement](/CapabilityStatement-smp-server.html)
+[PACIO SMP Server CapabilityStatement](/CapabilityStatement-smp-server.html)
 
       )
 

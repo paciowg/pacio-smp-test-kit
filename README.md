@@ -1,6 +1,6 @@
-# Pacio Smp Test Kit Test Kit
+# PACIO SMP Test Kit Test Kit
 
-Pacio smp test kit [Inferno](https://github.com/inferno-community/inferno-core) Test Kit
+PACIO SMP test kit [Inferno](https://github.com/inferno-community/inferno-core) Test Kit
 for FHIR testing.
 
 ## Getting Started
@@ -35,9 +35,9 @@ The quickest way to run this test kit locally is with [Docker](https://www.docke
 
   > If the page does not load, confirm that Docker is running and the `run.sh` script completed successfully.
 
-- In the **Test Suites** list, select **Pacio SMP Test Kit v1.0.0**, then click the **SELECT SUITE** button.
+- In the **Test Suites** list, select **PACIO SMP Test Kit v1.0.0**, then click the **SELECT SUITE** button.
 
-- On the **Pacio SMP Server v1.0.0** Inferno test suite page, click the **RUN ALL TESTS** tab in the top-right corner.
+- On the **PACIO SMP Server v1.0.0** Inferno test suite page, click the **RUN ALL TESTS** tab in the top-right corner.
 
 - When the parameter dialog appears, enter the following configuration values:
 
