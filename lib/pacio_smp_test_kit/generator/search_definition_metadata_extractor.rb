@@ -19,11 +19,6 @@ module PacioSMPTestKit
 
             full_paths = path.split('|')
 
-            # There is a bug in US Core 5 asserted-date search parameter. See FHIR-40573
-            if param.respond_to?(:version) && param.version == '5.0.1' && name == 'asserted-date'
-              remove_additional_extension_from_asserted_date(full_paths)
-            end
-
             full_paths
           end
       end

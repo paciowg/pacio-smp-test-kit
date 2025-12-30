@@ -1,5 +1,9 @@
 # PACIO SMP Test Kit Test Kit
 
+This is an [Inferno](https://github.com/inferno-community/inferno-core) Test Kit
+for PACIO SMP Implementation Guide
+[v1.0.0](https://hl7.org/fhir/us/smp/STU1/)
+
 PACIO SMP test kit [Inferno](https://github.com/inferno-community/inferno-core) Test Kit
 for FHIR testing.
 

@@ -24,7 +24,7 @@ module PacioSMPTestKit
       end
 
       def test_id
-        "smp_#{group_metadata.reformatted_version}_#{profile_identifier}_validation_test"
+        "#{Naming::SHORT_NAME.downcase}_#{group_metadata.reformatted_version}_#{profile_identifier}_validation_test"
       end
 
       def class_name
@@ -32,7 +32,7 @@ module PacioSMPTestKit
       end
 
       def module_name
-        "PacioSMP#{group_metadata.reformatted_version.upcase}"
+        "Pacio#{Naming::SHORT_NAME}#{group_metadata.reformatted_version.upcase}"
       end
 
       def generate

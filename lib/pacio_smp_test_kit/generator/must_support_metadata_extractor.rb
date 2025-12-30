@@ -3,8 +3,8 @@ require 'us_core_test_kit/generator/must_support_metadata_extractor'
 module PacioSMPTestKit
   class Generator
     class MustSupportMetadataExtractor < USCoreTestKit::Generator::MustSupportMetadataExtractor
-      def all_must_support_elements
-        profile_elements.select(&:mustSupport)
+      def is_uscdi_requirement_element?(element)
+        false
       end
 
       def type_slices
@@ -14,6 +14,7 @@ module PacioSMPTestKit
           type_path = '' if type_path == '$this'
           type_element =
             if type_path.present?
+              # There is a bug in US Core MustSupportMetadataExtractor which uses the incorrect variable "elements"
               profile_elements.find { |element| element.id == "#{current_element.id}.#{type_path}" }
             else
               current_element
