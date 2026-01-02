@@ -43,7 +43,7 @@ module PacioSMPTestKit
           # end
 
           group_metadata.name
-            .delete_prefix('smp_')
+            .delete_prefix("#{SHORT_NAME.downcase}_")
             .underscore
         end
 
