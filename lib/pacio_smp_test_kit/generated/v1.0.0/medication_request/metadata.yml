@@ -23,6 +23,12 @@
 - :names:
   - patient
   :expectation: SHALL
+- :names:
+  - intent
+  :expectation: SHOULD
+- :names:
+  - status
+  :expectation: SHOULD
 :search_definitions:
   :patient:
     :paths:
@@ -32,6 +38,34 @@
     :comparators: {}
     :values: []
     :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+  :intent:
+    :paths:
+    - intent
+    :full_paths:
+    - MedicationRequest.intent
+    :comparators: {}
+    :values: []
+    :type: code
+    :contains_multiple: false
+    :multiple_or: MAY
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - MedicationRequest.status
+    :comparators: {}
+    :values:
+    - active
+    - on-hold
+    - cancelled
+    - completed
+    - entered-in-error
+    - stopped
+    - draft
+    - unknown
+    :type: code
     :contains_multiple: false
     :multiple_or: MAY
 :must_supports:
@@ -181,6 +215,10 @@
 :tests:
 - :id: smp_v100_medication_request_patient_search_test
   :file_name: medication_request_patient_search_test.rb
+- :id: smp_v100_medication_request_intent_search_test
+  :file_name: medication_request_intent_search_test.rb
+- :id: smp_v100_medication_request_status_search_test
+  :file_name: medication_request_status_search_test.rb
 - :id: smp_v100_medication_request_read_test
   :file_name: medication_request_read_test.rb
 - :id: smp_v100_medication_request_validation_test

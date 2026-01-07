@@ -8,13 +8,17 @@ module PacioSMPTestKit
         result = super
         
         case resource_capabilities.type
-        when 'Patient' 
-          result << { names: ['_id'], expectation: 'SHALL' }
+        when 'Patient'
+          if result.none? { |p| p[:names] == ['_id'] }
+            result << { names: ['_id'], expectation: 'SHALL' } 
+          end
         when 'List'
           result.clear
           result << { names: ['patient', 'code'], expectation: 'SHALL' }     
         when 'MedicationAdministration', 'MedicationRequest', 'MedicationStatement'
-          result << { names: ['patient'], expectation: 'SHALL' }
+          if result.none? { |p| p[:names] == ['patient'] }
+            result << { names: ['patient'], expectation: 'SHALL' }
+          end
         end
         
         result

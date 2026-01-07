@@ -14,69 +14,67 @@
 :interactions:
 - :code: read
   :expectation: MAY
-- :code: create
-  :expectation: MAY
 :operations: []
 :searches: []
 :search_definitions: {}
 :must_supports:
   :extensions: []
   :slices:
-  - :slice_id: Bundle.entry:list
-    :slice_name: list
+  - :slice_id: Bundle.entry:List
+    :slice_name: List
     :path: entry
     :discriminator:
       :type: type
       :code: List
-  - :slice_id: Bundle.entry:patient
-    :slice_name: patient
+  - :slice_id: Bundle.entry:Patient
+    :slice_name: Patient
     :path: entry
     :discriminator:
       :type: type
       :code: Patient
-  - :slice_id: Bundle.entry:medicationstatement
-    :slice_name: medicationstatement
+  - :slice_id: Bundle.entry:MedicationStatement
+    :slice_name: MedicationStatement
     :path: entry
     :discriminator:
       :type: type
       :code: MedicationStatement
-  - :slice_id: Bundle.entry:medication
-    :slice_name: medication
+  - :slice_id: Bundle.entry:Medication
+    :slice_name: Medication
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationrequest
-    :slice_name: medicationrequest
+      :code: Medication
+  - :slice_id: Bundle.entry:MedicationRequest
+    :slice_name: MedicationRequest
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationdispense
-    :slice_name: medicationdispense
+      :code: MedicationRequest
+  - :slice_id: Bundle.entry:MedicationDispense
+    :slice_name: MedicationDispense
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationadministration
-    :slice_name: medicationadministration
+      :code: MedicationDispense
+  - :slice_id: Bundle.entry:MedicationAdministration
+    :slice_name: MedicationAdministration
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
+      :code: MedicationAdministration
   :elements:
   - :path: type
     :fixed_value: transaction
   - :path: total
   - :path: entry
   - :path: entry.request
-  - :path: entry:list.request
-  - :path: entry:patient.request
-  - :path: entry:medicationstatement.request
-  - :path: entry:medication.request
-  - :path: entry:medicationrequest.request
-  - :path: entry:medicationdispense.request
-  - :path: entry:medicationadministration.request
+  - :path: entry:List.request
+  - :path: entry:Patient.request
+  - :path: entry:MedicationStatement.request
+  - :path: entry:Medication.request
+  - :path: entry:MedicationRequest.request
+  - :path: entry:MedicationDispense.request
+  - :path: entry:MedicationAdministration.request
 :mandatory_elements:
 - Bundle.type
 - Bundle.link.relation

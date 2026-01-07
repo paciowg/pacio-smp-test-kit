@@ -1,5 +1,7 @@
 require 'fhir_models'
 require 'inferno/ext/fhir_models'
+require 'pry'
+require 'pry-byebug'
 
 require_relative 'generator/ig_loader'
 require_relative 'generator/ig_metadata_extractor'

@@ -23,6 +23,9 @@
 - :names:
   - patient
   :expectation: SHALL
+- :names:
+  - status
+  :expectation: SHOULD
 :search_definitions:
   :patient:
     :paths:
@@ -34,10 +37,42 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - MedicationStatement.status
+    :comparators: {}
+    :values:
+    - active
+    - completed
+    - entered-in-error
+    - intended
+    - stopped
+    - on-hold
+    - unknown
+    - not-taken
+    :type: code
+    :contains_multiple: false
+    :multiple_or: MAY
 :must_supports:
   :extensions: []
-  :slices: []
+  :slices:
+  - :slice_id: MedicationStatement.effective[x]:effectiveDateTime
+    :slice_name: effectiveDateTime
+    :path: effective[x]
+    :discriminator:
+      :type: type
+      :code: DateTime
+  - :slice_id: MedicationStatement.effective[x]:effectivePeriod
+    :slice_name: effectivePeriod
+    :path: effective[x]
+    :discriminator:
+      :type: type
+      :code: Period
   :elements:
+  - :path: effective[x]
+  - :path: dateAsserted
   - :path: dosage
 :mandatory_elements:
 - MedicationStatement.status
@@ -64,8 +99,8 @@
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 - :path: MedicationStatement.context
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Encounter
-  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
 - :path: MedicationStatement.informationSource
   :profiles:
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
@@ -74,15 +109,17 @@
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
 - :path: MedicationStatement.derivedFrom
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Resource
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
 - :path: MedicationStatement.reasonReference
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  - http://hl7.org/fhir/StructureDefinition/Observation
-  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
 :tests:
 - :id: smp_v100_medication_statement_patient_search_test
   :file_name: medication_statement_patient_search_test.rb
+- :id: smp_v100_medication_statement_status_search_test
+  :file_name: medication_statement_status_search_test.rb
 - :id: smp_v100_medication_statement_read_test
   :file_name: medication_statement_read_test.rb
 - :id: smp_v100_medication_statement_validation_test

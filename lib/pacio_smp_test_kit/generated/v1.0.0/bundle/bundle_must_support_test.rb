@@ -12,17 +12,18 @@ module PacioSMPTestKit
         found previously for the following must support elements:
 
         * Bundle.entry
-        * Bundle.entry:list
-        * Bundle.entry:list.resource
-        * Bundle.entry:medication
-        * Bundle.entry:medicationadministration
-        * Bundle.entry:medicationdispense
-        * Bundle.entry:medicationrequest
-        * Bundle.entry:medicationstatement
-        * Bundle.entry:patient
-        * Bundle.entry:patient.resource
-        * Bundle.entry:practitioner
-        * Bundle.entry:practitionerrole
+        * Bundle.entry:List
+        * Bundle.entry:List.resource
+        * Bundle.entry:Medication
+        * Bundle.entry:MedicationAdministration
+        * Bundle.entry:MedicationDispense
+        * Bundle.entry:MedicationRequest
+        * Bundle.entry:MedicationStatement
+        * Bundle.entry:Patient
+        * Bundle.entry:Patient.resource
+        * Bundle.entry:Practitioner
+        * Bundle.entry:PractitionerRole
+        * Bundle.entry:SMPMedicationActionPlanBundle
         * Bundle.total
         * Bundle.type
       )

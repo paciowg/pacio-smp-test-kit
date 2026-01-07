@@ -14,75 +14,79 @@
 :interactions:
 - :code: read
   :expectation: MAY
-- :code: create
-  :expectation: MAY
 :operations: []
 :searches: []
 :search_definitions: {}
 :must_supports:
   :extensions: []
   :slices:
-  - :slice_id: Bundle.entry:list
-    :slice_name: list
+  - :slice_id: Bundle.entry:List
+    :slice_name: List
     :path: entry
     :discriminator:
       :type: type
       :code: List
-  - :slice_id: Bundle.entry:patient
-    :slice_name: patient
+  - :slice_id: Bundle.entry:Patient
+    :slice_name: Patient
     :path: entry
     :discriminator:
       :type: type
       :code: Patient
-  - :slice_id: Bundle.entry:medicationadministration
-    :slice_name: medicationadministration
+  - :slice_id: Bundle.entry:MedicationAdministration
+    :slice_name: MedicationAdministration
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationstatement
-    :slice_name: medicationstatement
+      :code: MedicationAdministration
+  - :slice_id: Bundle.entry:MedicationStatement
+    :slice_name: MedicationStatement
     :path: entry
     :discriminator:
       :type: type
       :code: MedicationStatement
-  - :slice_id: Bundle.entry:medication
-    :slice_name: medication
+  - :slice_id: Bundle.entry:Medication
+    :slice_name: Medication
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationrequest
-    :slice_name: medicationrequest
+      :code: Medication
+  - :slice_id: Bundle.entry:MedicationRequest
+    :slice_name: MedicationRequest
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:medicationdispense
-    :slice_name: medicationdispense
+      :code: MedicationRequest
+  - :slice_id: Bundle.entry:MedicationDispense
+    :slice_name: MedicationDispense
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:practitioner
-    :slice_name: practitioner
+      :code: MedicationDispense
+  - :slice_id: Bundle.entry:SMPMedicationActionPlanBundle
+    :slice_name: SMPMedicationActionPlanBundle
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
-  - :slice_id: Bundle.entry:practitionerrole
-    :slice_name: practitionerrole
+      :code: Bundle
+  - :slice_id: Bundle.entry:Practitioner
+    :slice_name: Practitioner
     :path: entry
     :discriminator:
       :type: type
-      :code: Resource
+      :code: Practitioner
+  - :slice_id: Bundle.entry:PractitionerRole
+    :slice_name: PractitionerRole
+    :path: entry
+    :discriminator:
+      :type: type
+      :code: PractitionerRole
   :elements:
   - :path: type
     :fixed_value: collection
   - :path: total
   - :path: entry
-  - :path: entry:list.resource
-  - :path: entry:patient.resource
+  - :path: entry:List.resource
+  - :path: entry:Patient.resource
 :mandatory_elements:
 - Bundle.type
 - Bundle.link.relation
@@ -93,6 +97,14 @@
 - Bundle.entry.response.status
 - Bundle.entry.resource
 :bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+  :path: entry.search.mode
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/http-verb
+  :path: entry.request.method
 - :type: code
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/search-entry-mode

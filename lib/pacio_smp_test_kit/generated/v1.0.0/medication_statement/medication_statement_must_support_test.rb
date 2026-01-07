@@ -11,7 +11,11 @@ module PacioSMPTestKit
         This test will look through the MedicationStatement resources
         found previously for the following must support elements:
 
+        * MedicationStatement.dateAsserted
         * MedicationStatement.dosage
+        * MedicationStatement.effective[x]
+        * MedicationStatement.effective[x]:effectiveDateTime
+        * MedicationStatement.effective[x]:effectivePeriod
       )
 
       id :smp_v100_medication_statement_must_support_test

@@ -41,6 +41,7 @@ requirement of PACIO SMP v1.0.0.
           first_search: true,
           resource_type: 'MedicationRequest',
           search_param_names: ['patient'],
+          possible_status_search: true,
           test_medication_inclusion: true,
           test_reference_variants: true,
           test_post_search: true

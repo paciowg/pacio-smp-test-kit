@@ -13,20 +13,20 @@ module PacioSMPTestKit
 
         * Bundle.entry
         * Bundle.entry.request
-        * Bundle.entry:list
-        * Bundle.entry:list.request
-        * Bundle.entry:medication
-        * Bundle.entry:medication.request
-        * Bundle.entry:medicationadministration
-        * Bundle.entry:medicationadministration.request
-        * Bundle.entry:medicationdispense
-        * Bundle.entry:medicationdispense.request
-        * Bundle.entry:medicationrequest
-        * Bundle.entry:medicationrequest.request
-        * Bundle.entry:medicationstatement
-        * Bundle.entry:medicationstatement.request
-        * Bundle.entry:patient
-        * Bundle.entry:patient.request
+        * Bundle.entry:List
+        * Bundle.entry:List.request
+        * Bundle.entry:Medication
+        * Bundle.entry:Medication.request
+        * Bundle.entry:MedicationAdministration
+        * Bundle.entry:MedicationAdministration.request
+        * Bundle.entry:MedicationDispense
+        * Bundle.entry:MedicationDispense.request
+        * Bundle.entry:MedicationRequest
+        * Bundle.entry:MedicationRequest.request
+        * Bundle.entry:MedicationStatement
+        * Bundle.entry:MedicationStatement.request
+        * Bundle.entry:Patient
+        * Bundle.entry:Patient.request
         * Bundle.total
         * Bundle.type
       )

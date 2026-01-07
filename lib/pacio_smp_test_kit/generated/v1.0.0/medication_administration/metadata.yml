@@ -23,6 +23,9 @@
 - :names:
   - patient
   :expectation: SHALL
+- :names:
+  - status
+  :expectation: SHOULD
 :search_definitions:
   :patient:
     :paths:
@@ -32,6 +35,23 @@
     :comparators: {}
     :values: []
     :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - MedicationAdministration.status
+    :comparators: {}
+    :values:
+    - in-progress
+    - not-done
+    - on-hold
+    - completed
+    - entered-in-error
+    - stopped
+    - unknown
+    :type: code
     :contains_multiple: false
     :multiple_or: MAY
 :must_supports:
@@ -52,8 +72,8 @@
 :references:
 - :path: MedicationAdministration.partOf
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration
-  - http://hl7.org/fhir/StructureDefinition/Procedure
+  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
 - :path: MedicationAdministration.medication[x]
   :profiles:
   - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
@@ -62,32 +82,34 @@
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 - :path: MedicationAdministration.context
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Encounter
-  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
 - :path: MedicationAdministration.supportingInformation
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Resource
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
 - :path: MedicationAdministration.performer.actor
   :profiles:
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 - :path: MedicationAdministration.reasonReference
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Condition
-  - http://hl7.org/fhir/StructureDefinition/Observation
-  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+  - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
 - :path: MedicationAdministration.request
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest|4.0.1
 - :path: MedicationAdministration.device
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Device
+  - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
 - :path: MedicationAdministration.eventHistory
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Provenance
+  - http://hl7.org/fhir/StructureDefinition/Provenance|4.0.1
 :tests:
 - :id: smp_v100_medication_administration_patient_search_test
   :file_name: medication_administration_patient_search_test.rb
+- :id: smp_v100_medication_administration_status_search_test
+  :file_name: medication_administration_status_search_test.rb
 - :id: smp_v100_medication_administration_read_test
   :file_name: medication_administration_read_test.rb
 - :id: smp_v100_medication_administration_validation_test

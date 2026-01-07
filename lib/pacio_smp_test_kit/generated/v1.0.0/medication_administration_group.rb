@@ -1,4 +1,5 @@
 require_relative 'medication_administration/medication_administration_patient_search_test'
+require_relative 'medication_administration/medication_administration_status_search_test'
 require_relative 'medication_administration/medication_administration_read_test'
 require_relative 'medication_administration/medication_administration_validation_test'
 require_relative 'medication_administration/medication_administration_must_support_test'
@@ -79,6 +80,7 @@ read succeeds.
       end
 
       test from: :smp_v100_medication_administration_patient_search_test
+      test from: :smp_v100_medication_administration_status_search_test
       test from: :smp_v100_medication_administration_read_test
       test from: :smp_v100_medication_administration_validation_test
       test from: :smp_v100_medication_administration_must_support_test

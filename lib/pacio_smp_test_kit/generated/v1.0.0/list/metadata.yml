@@ -92,7 +92,7 @@
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 - :path: List.encounter
   :profiles:
-  - http://hl7.org/fhir/StructureDefinition/Encounter
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
 - :path: List.source
   :profiles:
   - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner

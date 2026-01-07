@@ -1,4 +1,5 @@
 require_relative 'medication_statement/medication_statement_patient_search_test'
+require_relative 'medication_statement/medication_statement_status_search_test'
 require_relative 'medication_statement/medication_statement_read_test'
 require_relative 'medication_statement/medication_statement_validation_test'
 require_relative 'medication_statement/medication_statement_must_support_test'
@@ -78,6 +79,7 @@ read succeeds.
       end
 
       test from: :smp_v100_medication_statement_patient_search_test
+      test from: :smp_v100_medication_statement_status_search_test
       test from: :smp_v100_medication_statement_read_test
       test from: :smp_v100_medication_statement_validation_test
       test from: :smp_v100_medication_statement_must_support_test
