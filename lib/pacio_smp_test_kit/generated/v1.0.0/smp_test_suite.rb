@@ -16,7 +16,7 @@ module PacioSMPTestKit
       title 'PACIO SMP Server v1.0.0'
       description %(
         The PACIO SMP Server Test Kit tests server systems for their conformance to the [PACIO SMP
-        Implementation Guide](http://hl7.org/fhir/us/smp/STU1).
+        Implementation Guide](https://build.fhir.org/ig/HL7/smp-ig/branches/mlt-preapply).
       )
 
       GENERAL_MESSAGE_FILTERS = [].freeze

@@ -19,7 +19,7 @@ module PacioSMPTestKit
       PATIENT = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
 
       IG_LINKS = {
-        'v1.0.0' => 'http://hl7.org/fhir/us/smp/STU1'
+        'v1.0.0' => 'https://build.fhir.org/ig/HL7/smp-ig/branches/mlt-preapply'
       }.freeze
 
       class << self
