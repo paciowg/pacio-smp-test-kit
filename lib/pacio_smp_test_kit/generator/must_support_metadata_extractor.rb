@@ -28,6 +28,7 @@ module PacioSMPTestKit
             path: current_element.path.gsub("#{resource}.", ''),
             discriminator: {
               type: 'type',
+              path: type_path,
               code: type_code.upcase_first
             }
           }

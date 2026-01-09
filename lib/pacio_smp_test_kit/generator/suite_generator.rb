@@ -31,7 +31,7 @@ module PacioSMPTestKit
 
       def ig_identifier
         version = ig_metadata.ig_version[1..] # Remove leading 'v'
-        "hl7.fhir.us.smp##{version}"
+        "hl7.fhir.us.smp#current"
       end
 
       def ig_link

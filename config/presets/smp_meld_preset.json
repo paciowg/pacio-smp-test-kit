@@ -1,0 +1,22 @@
+{
+  "title": "Pacio MELD Sandbox",
+  "id": "smp-pacio-meld",
+  "test_suite_id": "smp_v100",
+  "inputs": [
+    {
+      "name": "url",
+      "title": "FHIR Endpoint",
+      "description": "URL of the FHIR endpoint",
+      "type": "text",
+      "value": "https://gw.interop.community/paciosandbox/open"
+    },
+    {
+      "name": "patient_ids",
+      "value": "patient-betsysmith-johnson01"
+    },
+    {
+      "name": "bundle_resource_ids",
+      "value": "betsysmith-johnson01-SMP-Bundle-03-PCP"
+    }
+  ]
+}

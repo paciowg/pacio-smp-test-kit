@@ -1,9 +1,9 @@
-require 'us_core_test_kit/must_support_test'
+require_relative '../../../must_support_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class MedicationMustSupportTest < Inferno::Test
-      include USCoreTestKit::MustSupportTest
+      include PacioSMPTestKit::MustSupportTest
 
       title 'All must support elements are provided in the Medication resources returned'
 
