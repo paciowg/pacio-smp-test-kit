@@ -2,9 +2,6 @@ module PacioSMPTestKit
   class Generator
     module Naming
       SHORT_NAME = 'SMP'.freeze
-      # From SMP
-      BUNDLE_MEDICATION_LIST = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle'
-      BUNDLE_MEDICATION_LIST_MAINTENANCE = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction'
 
       IG_LINKS = {
         'v1.0.0' => 'https://build.fhir.org/ig/HL7/smp-ig/branches/mlt-preapply'

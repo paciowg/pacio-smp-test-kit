@@ -15,7 +15,8 @@ module PacioSMPTestKit
       # Identifier for profiles that need input ID
       PROFILES_NEED_ID_INPUT = [
         'bundle',
-        'bundle_transaction'
+        'bundle_transaction',
+        'medication_action_plan_bundle'
       ]
     end
   end

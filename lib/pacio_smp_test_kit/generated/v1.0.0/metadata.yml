@@ -593,6 +593,258 @@
   - :path: medication[x]
     :resources:
     - Medication
+- :name: smp_medication_action_plan
+  :class_name: SmpMedicationActionPlanSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: CarePlan
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan
+  :profile_name: Standardized Medication Profile - Medication Action Plan
+  :profile_version: 1.0.0
+  :title: Medication Action Plan
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Medication Action Plan.
+  :is_delayed: false
+  :interactions:
+  - :code: read
+    :expectation: SHOULD
+  - :code: create
+    :expectation: MAY
+  - :code: update
+    :expectation: MAY
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - subject
+      :full_paths:
+      - CarePlan.subject
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: CarePlan.category:AssessPlan
+      :slice_name: AssessPlan
+      :path: category
+      :discriminator:
+        :type: patternCodeableConcept
+        :path: ''
+        :code: assess-plan
+        :system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
+    - :slice_id: CarePlan.category:MedActPlanCategory
+      :slice_name: MedActPlanCategory
+      :path: category
+      :discriminator:
+        :type: patternCodeableConcept
+        :path: ''
+        :code: '736378000'
+        :system: http://snomed.info/sct
+    :elements:
+    - :path: text
+    - :path: text.status
+    - :path: text.div
+    - :path: status
+    - :path: intent
+    - :path: category
+    - :path: subject
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+    - :path: supportingInfo
+      :types:
+      - Reference
+      :target_profiles:
+      - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan-detected-issue
+  :mandatory_elements:
+  - CarePlan.text.status
+  - CarePlan.text.div
+  - CarePlan.status
+  - CarePlan.intent
+  - CarePlan.category
+  - CarePlan.subject
+  - CarePlan.supportingInfo
+  - CarePlan.activity.detail.status
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status
+    :path: text.status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/request-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/care-plan-intent
+    :path: intent
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/care-plan-activity-kind
+    :path: activity.detail.kind
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/care-plan-activity-status
+    :path: activity.detail.status
+  :references:
+  - :path: CarePlan.basedOn
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - :path: CarePlan.replaces
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - :path: CarePlan.partOf
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CarePlan
+  - :path: CarePlan.subject
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: CarePlan.encounter
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Encounter
+  - :path: CarePlan.author
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+  - :path: CarePlan.contributor
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Device
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - :path: CarePlan.careTeam
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+  - :path: CarePlan.addresses
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+  - :path: CarePlan.supportingInfo
+    :profiles:
+    - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan-detected-issue
+  - :path: CarePlan.goal
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Goal
+  - :path: CarePlan.activity.outcomeReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource
+  - :path: CarePlan.activity.reference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Appointment
+    - http://hl7.org/fhir/StructureDefinition/CommunicationRequest
+    - http://hl7.org/fhir/StructureDefinition/DeviceRequest
+    - http://hl7.org/fhir/StructureDefinition/MedicationRequest
+    - http://hl7.org/fhir/StructureDefinition/NutritionOrder
+    - http://hl7.org/fhir/StructureDefinition/Task
+    - http://hl7.org/fhir/StructureDefinition/ServiceRequest
+    - http://hl7.org/fhir/StructureDefinition/VisionPrescription
+    - http://hl7.org/fhir/StructureDefinition/RequestGroup
+  - :path: CarePlan.activity.detail.reasonReference
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Condition
+    - http://hl7.org/fhir/StructureDefinition/Observation
+    - http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+    - http://hl7.org/fhir/StructureDefinition/DocumentReference
+  - :path: CarePlan.activity.detail.goal
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Goal
+  - :path: CarePlan.activity.detail.location
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Location
+  - :path: CarePlan.activity.detail.performer
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole
+    - http://hl7.org/fhir/StructureDefinition/Organization
+    - http://hl7.org/fhir/StructureDefinition/RelatedPerson
+    - http://hl7.org/fhir/StructureDefinition/Patient
+    - http://hl7.org/fhir/StructureDefinition/CareTeam
+    - http://hl7.org/fhir/StructureDefinition/HealthcareService
+    - http://hl7.org/fhir/StructureDefinition/Device
+  - :path: CarePlan.activity.detail.product[x]
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Medication
+    - http://hl7.org/fhir/StructureDefinition/Substance
+  :delayed_references: []
+- :name: smp_medication_action_plan_detected_issue
+  :class_name: SmpMedicationActionPlanDetectedIssueSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: DetectedIssue
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan-detected-issue
+  :profile_name: Standardized Medication Profile - Medication Action Plan Detected
+    Issue
+  :profile_version: 1.0.0
+  :title: Medication Action Plan Detected Issue
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Medication Action Plan Detected Issue.
+  :is_delayed: false
+  :interactions:
+  - :code: read
+    :expectation: SHOULD
+  :operations: []
+  :searches:
+  - :names:
+    - patient
+    :expectation: SHALL
+  :search_definitions:
+    :patient:
+      :paths:
+      - patient
+      :full_paths:
+      - DetectedIssue.patient
+      :comparators: {}
+      :values: []
+      :type: Reference
+      :contains_multiple: false
+      :multiple_or: MAY
+  :must_supports:
+    :extensions: []
+    :slices: []
+    :elements:
+    - :path: code
+    - :path: detail
+  :mandatory_elements:
+  - DetectedIssue.status
+  - DetectedIssue.mitigation.action
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/observation-status
+    :path: status
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/detectedissue-severity
+    :path: severity
+  :references:
+  - :path: DetectedIssue.patient
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
+  - :path: DetectedIssue.author
+    :profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+  - :path: DetectedIssue.implicated
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+  - :path: DetectedIssue.evidence.detail
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+  - :path: DetectedIssue.mitigation.author
+    :profiles:
+    - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
+    - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+  :delayed_references: []
 - :name: us_core_patient
   :class_name: UsCorePatientSequence
   :version: v1.0.0
@@ -1044,6 +1296,84 @@
     :strength: required
     :system: http://hl7.org/fhir/ValueSet/http-verb
     :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+    :path: entry.search.mode
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/http-verb
+    :path: entry.request.method
+  :references: []
+  :delayed_references: []
+- :name: smp_medication_action_plan_bundle
+  :class_name: SmpMedicationActionPlanBundleSequence
+  :version: v1.0.0
+  :reformatted_version: v100
+  :resource: Bundle
+  :profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan-bundle
+  :profile_name: Standardized Medication Profile - Bundle Medication Action Plan
+  :profile_version: 1.0.0
+  :title: Bundle Medication Action Plan
+  :short_description: Verify support for the server capabilities required by the Standardized
+    Medication Profile - Bundle Medication Action Plan.
+  :is_delayed: true
+  :interactions:
+  - :code: read
+    :expectation: MAY
+  :operations: []
+  :searches: []
+  :search_definitions: {}
+  :must_supports:
+    :extensions: []
+    :slices:
+    - :slice_id: Bundle.entry:patient
+      :slice_name: patient
+      :path: entry
+      :discriminator:
+        :type: type
+        :path: resource
+        :code: Patient
+    - :slice_id: Bundle.entry:smp-map-composition
+      :slice_name: smp-map-composition
+      :path: entry
+      :discriminator:
+        :type: type
+        :path: resource
+        :code: Composition
+    :elements:
+    - :path: entry
+    - :path: entry:patient.resource
+  :mandatory_elements:
+  - Bundle.type
+  - Bundle.link.relation
+  - Bundle.link.url
+  - Bundle.entry
+  - Bundle.entry.request.method
+  - Bundle.entry.request.url
+  - Bundle.entry.response.status
+  - Bundle.entry.resource
+  :bindings:
+  - :type: code
+    :strength: required
+    :system: http://hl7.org/fhir/ValueSet/bundle-type
+    :path: type
   - :type: code
     :strength: required
     :system: http://hl7.org/fhir/ValueSet/search-entry-mode

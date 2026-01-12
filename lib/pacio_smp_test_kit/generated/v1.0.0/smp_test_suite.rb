@@ -6,9 +6,12 @@ require_relative 'list_group'
 require_relative 'medication_statement_group'
 require_relative 'medication_request_group'
 require_relative 'medication_administration_group'
+require_relative 'care_plan_group'
+require_relative 'detected_issue_group'
 require_relative 'medication_group'
 require_relative 'bundle_group'
 require_relative 'bundle_transaction_group'
+require_relative 'medication_action_plan_bundle_group'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -34,8 +37,7 @@ module PacioSMPTestKit
       id :smp_v100
 
       fhir_resource_validator do
-        #igs 'hl7.fhir.us.smp#current', 'hl7.fhir.us.core#6.1.0'
-        igs './igs/pacio_smp_mld_preapply.tgz', 'hl7.fhir.us.core#6.1.0'
+        igs './igs/pacio_smp_mlt_preapply.tgz', 'hl7.fhir.us.core#6.1.0'
         message_filters = VALIDATION_MESSAGE_FILTERS
 
         exclude_message do |message|
@@ -63,9 +65,12 @@ module PacioSMPTestKit
       group from: :smp_v100_medication_statement
       group from: :smp_v100_medication_request
       group from: :smp_v100_medication_administration
+      group from: :smp_v100_care_plan
+      group from: :smp_v100_detected_issue
       group from: :smp_v100_medication
       group from: :smp_v100_bundle
       group from: :smp_v100_bundle_transaction
+      group from: :smp_v100_medication_action_plan_bundle
 
       links [
         {
