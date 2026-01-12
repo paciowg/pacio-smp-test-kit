@@ -20,3 +20,4 @@
 /docs/yard
 .yardoc
 node_modules
+/lib/pacio_smp_test_kit/igs/package

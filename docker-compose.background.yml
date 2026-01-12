@@ -9,7 +9,7 @@ services:
       - ./data/igs:/app/igs
       # To let the service share your local FHIR package cache,
       # uncomment the below line
-      # - ~/.fhir:/home/ktor/.fhir
+      - ~/.fhir:/home/ktor/.fhir
   fhirpath:
     image: infernocommunity/fhirpath-service
     ports:
