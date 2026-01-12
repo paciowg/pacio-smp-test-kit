@@ -2,10 +2,10 @@ require 'us_core_test_kit/validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
-    class BundleTransactionValidationTest < Inferno::Test
+    class BundleMedicationListMaintenanceValidationTest < Inferno::Test
       include USCoreTestKit::ValidationTest
 
-      id :smp_v100_bundle_transaction_validation_test
+      id :smp_v100_bundle_medication_list_maintenance_validation_test
 
       title <<~DESC
         Bundle resources returned during previous tests conform to the Standardized Medication Profile - Bundle Medication List Maintenance
@@ -31,7 +31,7 @@ fail if their code/system are not found in the valueset.
       end
 
       def scratch_resources
-        scratch[:bundle_transaction_resources] ||= {}
+        scratch[:bundle_medication_list_maintenance_resources] ||= {}
       end
 
       run do

@@ -7,8 +7,8 @@ require_relative 'medication_statement_group'
 require_relative 'medication_request_group'
 require_relative 'medication_administration_group'
 require_relative 'medication_group'
-require_relative 'bundle_group'
-require_relative 'bundle_transaction_group'
+require_relative 'bundle_medication_list_group'
+require_relative 'bundle_medication_list_maintenance_group'
 
 module PacioSMPTestKit
   module PacioSMPV100
@@ -63,8 +63,8 @@ module PacioSMPTestKit
       group from: :smp_v100_medication_request
       group from: :smp_v100_medication_administration
       group from: :smp_v100_medication
-      group from: :smp_v100_bundle
-      group from: :smp_v100_bundle_transaction
+      group from: :smp_v100_bundle_medication_list
+      group from: :smp_v100_bundle_medication_list_maintenance
 
       links [
         {

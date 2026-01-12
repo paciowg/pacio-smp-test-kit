@@ -1,15 +1,15 @@
 ---
-:name: smp_bundle_transaction
-:class_name: SmpBundleTransactionSequence
+:name: smp_bundle
+:class_name: SmpBundleSequence
 :version: v1.0.0
 :reformatted_version: v100
 :resource: Bundle
-:profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction
-:profile_name: Standardized Medication Profile - Bundle Medication List Maintenance
+:profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle
+:profile_name: Standardized Medication Profile - Bundle Medication List
 :profile_version: 1.0.0
-:title: Bundle Medication List Maintenance
+:title: Bundle Medication List
 :short_description: Verify support for the server capabilities required by the Standardized
-  Medication Profile - Bundle Medication List Maintenance.
+  Medication Profile - Bundle Medication List.
 :is_delayed: true
 :interactions:
 - :code: read
@@ -34,6 +34,13 @@
       :type: type
       :path: resource
       :code: Patient
+  - :slice_id: Bundle.entry:MedicationAdministration
+    :slice_name: MedicationAdministration
+    :path: entry
+    :discriminator:
+      :type: type
+      :path: resource
+      :code: MedicationAdministration
   - :slice_id: Bundle.entry:MedicationStatement
     :slice_name: MedicationStatement
     :path: entry
@@ -62,36 +69,68 @@
       :type: type
       :path: resource
       :code: MedicationDispense
-  - :slice_id: Bundle.entry:MedicationAdministration
-    :slice_name: MedicationAdministration
+  - :slice_id: Bundle.entry:SMPMedicationActionPlanBundle
+    :slice_name: SMPMedicationActionPlanBundle
     :path: entry
     :discriminator:
       :type: type
       :path: resource
-      :code: MedicationAdministration
+      :code: Bundle
+  - :slice_id: Bundle.entry:Practitioner
+    :slice_name: Practitioner
+    :path: entry
+    :discriminator:
+      :type: type
+      :path: resource
+      :code: Practitioner
+  - :slice_id: Bundle.entry:PractitionerRole
+    :slice_name: PractitionerRole
+    :path: entry
+    :discriminator:
+      :type: type
+      :path: resource
+      :code: PractitionerRole
   :elements:
   - :path: type
-    :fixed_value: transaction
+    :fixed_value: collection
   - :path: total
   - :path: entry
-  - :path: entry.request
-  - :path: entry:List.request
-  - :path: entry:Patient.request
-  - :path: entry:MedicationStatement.request
-  - :path: entry:Medication.request
-  - :path: entry:MedicationRequest.request
-  - :path: entry:MedicationDispense.request
-  - :path: entry:MedicationAdministration.request
+  - :path: entry:List.resource
+  - :path: entry:Patient.resource
 :mandatory_elements:
 - Bundle.type
 - Bundle.link.relation
 - Bundle.link.url
 - Bundle.entry
-- Bundle.entry.request
 - Bundle.entry.request.method
 - Bundle.entry.request.url
 - Bundle.entry.response.status
+- Bundle.entry.resource
 :bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+  :path: entry.search.mode
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/http-verb
+  :path: entry.request.method
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+  :path: entry.search.mode
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/http-verb
+  :path: entry.request.method
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/search-entry-mode
+  :path: entry.search.mode
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/http-verb
+  :path: entry.request.method
 - :type: code
   :strength: required
   :system: http://hl7.org/fhir/ValueSet/search-entry-mode
@@ -158,12 +197,12 @@
   :path: entry.request.method
 :references: []
 :tests:
-- :id: smp_v100_bundle_transaction_read_test
-  :file_name: bundle_transaction_read_test.rb
-- :id: smp_v100_bundle_transaction_validation_test
-  :file_name: bundle_transaction_validation_test.rb
-- :id: smp_v100_bundle_transaction_must_support_test
-  :file_name: bundle_transaction_must_support_test.rb
-:id: smp_v100_bundle_transaction
-:file_name: bundle_transaction_group.rb
+- :id: smp_v100_bundle_medication_list_read_test
+  :file_name: bundle_medication_list_read_test.rb
+- :id: smp_v100_bundle_medication_list_validation_test
+  :file_name: bundle_medication_list_validation_test.rb
+- :id: smp_v100_bundle_medication_list_must_support_test
+  :file_name: bundle_medication_list_must_support_test.rb
+:id: smp_v100_bundle_medication_list
+:file_name: bundle_medication_list_group.rb
 :delayed_references: []

@@ -2,7 +2,7 @@ require_relative '../../../must_support_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
-    class BundleTransactionMustSupportTest < Inferno::Test
+    class BundleMedicationListMaintenanceMustSupportTest < Inferno::Test
       include PacioSMPTestKit::MustSupportTest
 
       title 'All must support elements are provided in the Bundle resources returned'
@@ -31,7 +31,7 @@ module PacioSMPTestKit
         * Bundle.type
       )
 
-      id :smp_v100_bundle_transaction_must_support_test
+      id :smp_v100_bundle_medication_list_maintenance_must_support_test
 
       def resource_type
         'Bundle'
@@ -42,7 +42,7 @@ module PacioSMPTestKit
       end
 
       def scratch_resources
-        scratch[:bundle_transaction_resources] ||= {}
+        scratch[:bundle_medication_list_maintenance_resources] ||= {}
       end
 
       run do

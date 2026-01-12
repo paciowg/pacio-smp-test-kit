@@ -5,18 +5,6 @@ module PacioSMPTestKit
       # From SMP
       BUNDLE_MEDICATION_LIST = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle'
       BUNDLE_MEDICATION_LIST_MAINTENANCE = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction'
-      MEDICATION = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication'
-      MEDICATION_LIST = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-list'
-      MEDICATION_ADMINISTRATION = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration'
-      MEDICATION_STATEMENT = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationstatement'
-      PARAMETER_QUERY = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-parameters-query'
-      PARAMETER_RESPONSE = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-parameters-response'
-      PARAMETER_SUBMIT = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-parameters-submit'
-      PARAMETER_OUTCOME = 'http://hl7.org/fhir/us/smp/StructureDefinition/smp-parameters-outcome'
-      
-      # From US Core
-      MEDICATION_REQUEST = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest'
-      PATIENT = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
 
       IG_LINKS = {
         'v1.0.0' => 'https://build.fhir.org/ig/HL7/smp-ig/branches/mlt-preapply'
@@ -35,12 +23,12 @@ module PacioSMPTestKit
           resource = group_metadata.resource
           return resource.underscore unless resource_has_multiple_profiles?(resource)
 
-          # case group_metadata.profile_url
-          # when BUNDLE_MEDICATION_LIST
-          #   return 'bundle_medication_list'
-          # when BUNDLE_MEDICATION_LIST_MAINTENANCE
-          #   return 'bundle_medication_list_maintenance'
-          # end
+          case group_metadata.profile_url
+          when BUNDLE_MEDICATION_LIST
+            return 'bundle_medication_list'
+          when BUNDLE_MEDICATION_LIST_MAINTENANCE
+            return 'bundle_medication_list_maintenance'
+          end
 
           group_metadata.name
             .delete_prefix("#{SHORT_NAME.downcase}_")

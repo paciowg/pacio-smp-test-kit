@@ -1,20 +1,20 @@
-require_relative 'bundle_transaction/bundle_transaction_read_test'
-require_relative 'bundle_transaction/bundle_transaction_validation_test'
-require_relative 'bundle_transaction/bundle_transaction_must_support_test'
+require_relative 'bundle_medication_list/bundle_medication_list_read_test'
+require_relative 'bundle_medication_list/bundle_medication_list_validation_test'
+require_relative 'bundle_medication_list/bundle_medication_list_must_support_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
-    class BundleTransactionGroup < Inferno::TestGroup
-      title 'Bundle Medication List Maintenance Tests'
+    class BundleMedicationListGroup < Inferno::TestGroup
+      title 'Bundle Medication List Tests'
       short_description <<~DESC
-        'Verify support for the server capabilities required by the Standardized Medication Profile - Bundle Medication List Maintenance.'
+        'Verify support for the server capabilities required by the Standardized Medication Profile - Bundle Medication List.'
       DESC
       description %(
 # Background
 
-The SMP Bundle Medication List Maintenance sequence verifies that the system under test is
+The SMP Bundle Medication List sequence verifies that the system under test is
 able to provide correct responses for Bundle queries. These queries
-must contain resources conforming to the Standardized Medication Profile - Bundle Medication List Maintenance as
+must contain resources conforming to the Standardized Medication Profile - Bundle Medication List as
 specified in the SMP v1.0.0 Implementation Guide.
 
 # Testing Methodology
@@ -29,7 +29,7 @@ elements.
 
 ## Profile Validation
 Each resource returned from the first search is expected to conform to
-the [Standardized Medication Profile - Bundle Medication List Maintenance](http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle-transaction).
+the [Standardized Medication Profile - Bundle Medication List](http://hl7.org/fhir/us/smp/StructureDefinition/smp-bundle).
 Each element is checked against terminology binding and cardinality requirements.
 
 Elements with a required binding are validated against their bound
@@ -44,19 +44,19 @@ read succeeds.
 
       )
 
-      id :smp_v100_bundle_transaction
+      id :smp_v100_bundle_medication_list
       run_as_group
       optional
 
       def self.metadata
         @metadata ||= Generator::GroupMetadata.new(
-          YAML.load_file(File.join(__dir__, 'bundle_transaction', 'metadata.yml'), aliases: true)
+          YAML.load_file(File.join(__dir__, 'bundle_medication_list', 'metadata.yml'), aliases: true)
         )
       end
 
-      test from: :smp_v100_bundle_transaction_read_test
-      test from: :smp_v100_bundle_transaction_validation_test
-      test from: :smp_v100_bundle_transaction_must_support_test
+      test from: :smp_v100_bundle_medication_list_read_test
+      test from: :smp_v100_bundle_medication_list_validation_test
+      test from: :smp_v100_bundle_medication_list_must_support_test
     end
   end
 end
