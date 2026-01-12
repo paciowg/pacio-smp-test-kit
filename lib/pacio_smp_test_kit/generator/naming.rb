@@ -23,13 +23,6 @@ module PacioSMPTestKit
           resource = group_metadata.resource
           return resource.underscore unless resource_has_multiple_profiles?(resource)
 
-          case group_metadata.profile_url
-          when BUNDLE_MEDICATION_LIST
-            return 'bundle_medication_list'
-          when BUNDLE_MEDICATION_LIST_MAINTENANCE
-            return 'bundle_medication_list_maintenance'
-          end
-
           group_metadata.name
             .delete_prefix("#{SHORT_NAME.downcase}_")
             .underscore
