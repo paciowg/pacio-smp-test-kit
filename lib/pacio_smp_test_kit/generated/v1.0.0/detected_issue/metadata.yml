@@ -19,6 +19,9 @@
 - :names:
   - patient
   :expectation: SHALL
+  :names_not_must_support_or_mandatory:
+  - patient
+  :must_support_or_mandatory: false
 :search_definitions:
   :patient:
     :paths:
@@ -30,6 +33,9 @@
     :type: Reference
     :contains_multiple: false
     :multiple_or: MAY
+:include_params: []
+:revincludes: []
+:required_concepts: []
 :must_supports:
   :extensions: []
   :slices: []

@@ -30,6 +30,8 @@
     - patient
     - code
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :patient:
       :paths:
@@ -59,6 +61,9 @@
       :type: CodeableConcept
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices: []
@@ -127,9 +132,13 @@
   - :names:
     - patient
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :patient:
       :paths:
@@ -159,6 +168,9 @@
       :type: code
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices:
@@ -245,6 +257,9 @@
   :operations: []
   :searches: []
   :search_definitions: {}
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices: []
@@ -293,12 +308,18 @@
   - :names:
     - patient
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - intent
     :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :patient:
       :paths:
@@ -338,6 +359,10 @@
       :type: code
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts:
+  - category
   :must_supports:
     :extensions: []
     :slices:
@@ -507,9 +532,13 @@
   - :names:
     - patient
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   - :names:
     - status
     :expectation: SHOULD
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :patient:
       :paths:
@@ -538,6 +567,9 @@
       :type: code
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices: []
@@ -617,6 +649,8 @@
   - :names:
     - patient
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :patient:
       :paths:
@@ -628,6 +662,9 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices:
@@ -797,6 +834,9 @@
   - :names:
     - patient
     :expectation: SHALL
+    :names_not_must_support_or_mandatory:
+    - patient
+    :must_support_or_mandatory: false
   :search_definitions:
     :patient:
       :paths:
@@ -808,6 +848,9 @@
       :type: Reference
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices: []
@@ -869,6 +912,8 @@
   - :names:
     - _id
     :expectation: SHALL
+    :names_not_must_support_or_mandatory: []
+    :must_support_or_mandatory: true
   :search_definitions:
     :_id:
       :paths:
@@ -880,6 +925,9 @@
       :type: http://hl7.org/fhirpath/System.String
       :contains_multiple: false
       :multiple_or: MAY
+  :include_params: []
+  :revincludes: []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices: []
@@ -987,6 +1035,9 @@
   :operations: []
   :searches: []
   :search_definitions: {}
+  :include_params: &1 []
+  :revincludes: &2 []
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices:
@@ -1185,6 +1236,9 @@
   :operations: []
   :searches: []
   :search_definitions: {}
+  :include_params: *1
+  :revincludes: *2
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices:
@@ -1344,6 +1398,9 @@
   :operations: []
   :searches: []
   :search_definitions: {}
+  :include_params: *1
+  :revincludes: *2
+  :required_concepts: []
   :must_supports:
     :extensions: []
     :slices:

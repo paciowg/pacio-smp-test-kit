@@ -26,6 +26,11 @@ module PacioSMPTestKit
         "Pacio#{Naming::SHORT_NAME}#{group_metadata.reformatted_version.upcase}"
       end
 
+            def optional?
+              binding.pry if search_identifier == '_id'
+        conformance_expectation != 'SHALL' || !search_metadata[:must_support_or_mandatory]
+      end
+
       def search_test_properties_string
         search_properties
           .map { |key, value| "#{' ' * 10}#{key}: #{value}" }

@@ -26,8 +26,6 @@ requirement of PACIO SMP v1.0.0.
       )
 
       id :smp_v100_patient__id_search_test
-      optional
-
       input :patient_ids,
             title: 'Patient IDs',
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'

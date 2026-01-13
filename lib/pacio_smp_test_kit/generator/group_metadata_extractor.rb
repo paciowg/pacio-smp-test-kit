@@ -14,32 +14,6 @@ module PacioSMPTestKit
           GroupMetadata.new(group_metadata_hash)
       end
 
-      def group_metadata_hash
-        @group_metadata_hash ||=
-          {
-            name:,
-            class_name:,
-            version:,
-            reformatted_version:,
-            resource:,
-            profile_url:,
-            profile_name:,
-            profile_version:,
-            title:,
-            short_description:,
-            interactions:,
-            operations:,
-            searches:,
-            search_definitions:,
-            must_supports:,
-            mandatory_elements:,
-            bindings:,
-            references:,
-            resource_conformance_expectation:
-          }
-
-        @group_metadata_hash
-      end
 
       def class_name
         base_name

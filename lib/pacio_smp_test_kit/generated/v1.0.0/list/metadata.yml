@@ -28,6 +28,8 @@
   - patient
   - code
   :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
 :search_definitions:
   :patient:
     :paths:
@@ -57,6 +59,9 @@
     :type: CodeableConcept
     :contains_multiple: false
     :multiple_or: MAY
+:include_params: []
+:revincludes: []
+:required_concepts: []
 :must_supports:
   :extensions: []
   :slices: []
