@@ -813,9 +813,13 @@
     :slices: []
     :elements:
     - :path: code
+    - :path: implicated
+      :types:
+      - Reference
     - :path: detail
   :mandatory_elements:
   - DetectedIssue.status
+  - DetectedIssue.implicated
   - DetectedIssue.mitigation.action
   :bindings:
   - :type: code

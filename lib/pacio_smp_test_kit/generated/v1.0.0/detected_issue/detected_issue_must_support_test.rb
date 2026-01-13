@@ -13,6 +13,7 @@ module PacioSMPTestKit
 
         * DetectedIssue.code
         * DetectedIssue.detail
+        * DetectedIssue.implicated
       )
 
       id :smp_v100_detected_issue_must_support_test
