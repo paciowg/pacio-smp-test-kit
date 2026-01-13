@@ -24,7 +24,7 @@ The quickest way to run this test kit locally is with [Docker](https://www.docke
 
 - **Temporary step:** Switch to the `generator` branch for the latest updates:
   ```
-  git checkout generator
+  git checkout connectathon-2026-01
   ```
 
 ### Running the Test Kit
