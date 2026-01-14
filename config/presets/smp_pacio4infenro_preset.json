@@ -8,7 +8,7 @@
       "title": "FHIR Endpoint",
       "description": "URL of the FHIR endpoint",
       "type": "text",
-      "value": "https://gw.interop.community/paciosandbox/open"
+      "value": "https://gw.interop.community/pacio4inferno/open"
     },
     {
       "name": "patient_ids",
