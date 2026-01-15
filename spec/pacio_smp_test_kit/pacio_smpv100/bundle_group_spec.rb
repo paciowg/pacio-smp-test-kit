@@ -16,7 +16,7 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::BundleGroup do
         {
           resource: FHIR::Patient.new(id: 'patient-1')
         },
-                {
+        {
           resource: FHIR::MedicationAdministration.new(id: 'med-admin')
         },        
         {

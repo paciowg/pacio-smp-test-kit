@@ -70,14 +70,12 @@
     :path: effective[x]
     :discriminator:
       :type: type
-      :path: ''
       :code: DateTime
   - :slice_id: MedicationStatement.effective[x]:effectivePeriod
     :slice_name: effectivePeriod
     :path: effective[x]
     :discriminator:
       :type: type
-      :path: ''
       :code: Period
   :elements:
   - :path: effective[x]

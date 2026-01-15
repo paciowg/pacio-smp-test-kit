@@ -28,15 +28,15 @@
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: Patient
+      :path: resource
   - :slice_id: Bundle.entry:smp-map-composition
     :slice_name: smp-map-composition
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: Composition
+      :path: resource
   :elements:
   - :path: entry
   - :path: entry:patient.resource

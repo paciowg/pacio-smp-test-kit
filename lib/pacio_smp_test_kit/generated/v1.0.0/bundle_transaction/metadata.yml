@@ -28,50 +28,50 @@
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: List
+      :path: resource
   - :slice_id: Bundle.entry:Patient
     :slice_name: Patient
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: Patient
+      :path: resource
   - :slice_id: Bundle.entry:MedicationStatement
     :slice_name: MedicationStatement
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: MedicationStatement
+      :path: resource
   - :slice_id: Bundle.entry:Medication
     :slice_name: Medication
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: Medication
+      :path: resource
   - :slice_id: Bundle.entry:MedicationRequest
     :slice_name: MedicationRequest
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: MedicationRequest
+      :path: resource
   - :slice_id: Bundle.entry:MedicationDispense
     :slice_name: MedicationDispense
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: MedicationDispense
+      :path: resource
   - :slice_id: Bundle.entry:MedicationAdministration
     :slice_name: MedicationAdministration
     :path: entry
     :discriminator:
       :type: type
-      :path: resource
       :code: MedicationAdministration
+      :path: resource
   :elements:
   - :path: type
     :fixed_value: transaction

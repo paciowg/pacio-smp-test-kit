@@ -22,15 +22,18 @@ module PacioSMPTestKit
 
           type_code = type_element.type.first.code
 
+          discriminator = {
+            type: 'type',
+            code: type_code.upcase_first
+          }
+          
+          discriminator[:path] = type_path unless type_path.empty?
+
           {
             slice_id: current_element.id,
             slice_name: current_element.sliceName,
             path: current_element.path.gsub("#{resource}.", ''),
-            discriminator: {
-              type: 'type',
-              path: type_path,
-              code: type_code.upcase_first
-            }
+            discriminator: discriminator
           }
         end
       end
