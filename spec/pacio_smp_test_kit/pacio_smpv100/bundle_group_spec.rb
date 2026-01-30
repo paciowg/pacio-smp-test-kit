@@ -12,35 +12,34 @@ RSpec.describe PacioSMPTestKit::PacioSMPV100::BundleGroup do
       entry: [
         {
           resource: FHIR::List.new(id: 'list')
-        },        
+        },
         {
           resource: FHIR::Patient.new(id: 'patient-1')
         },
         {
           resource: FHIR::MedicationAdministration.new(id: 'med-admin')
-        },        
+        },
         {
           resource: FHIR::MedicationStatement.new(id: 'med-statement')
-        },        
+        },
         {
           resource: FHIR::Medication.new(id: 'med')
-        },        
+        },
         {
           resource: FHIR::MedicationRequest.new(id: 'med-request')
-        },        
+        },
         {
           resource: FHIR::MedicationDispense.new(id: 'med-dispense')
-        },        
+        },
         {
           resource: FHIR::Bundle.new(id: 'smp-med-action-plan-bundle')
-        },        
+        },
         {
           resource: FHIR::Practitioner.new(id: 'practitioner')
-        },        
+        },
         {
           resource: FHIR::PractitionerRole.new(id: 'practitioner-role')
-        },        
-
+        }
       ]
     )
   end

@@ -3,7 +3,7 @@ require 'us_core_test_kit/must_support_test'
 module PacioSMPTestKit
   module MustSupportTest
     include USCoreTestKit::MustSupportTest
-    extend USCoreTestKit::MustSupportTest 
+    extend USCoreTestKit::MustSupportTest
   end
 end
 
@@ -12,11 +12,10 @@ end
 module Inferno
   module DSL
     module FHIRResourceNavigation
-
       # @private
       def matching_type_slice?(slice, discriminator)
         # Monkey Patch: apply discriminator.path if specified
-        slice_value = discriminator[:path].present? ? slice.send(discriminator[:path]) : slice
+        slice_value = resolve_path(slice, discriminator[:path]).first
 
         case discriminator[:code]
         when 'Date'
