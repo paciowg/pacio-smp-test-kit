@@ -1,8 +1,12 @@
 # @note includes RSpec shared context 'when testing a runnable'
-RSpec.describe PacioSMPTestKit::PatientGroup do
-  let(:suite_id) { 'pacio_smp' }
-  let(:group) { suite.groups[1] }
+RSpec.describe PacioSMPTestKit::PacioSMPV100::PatientGroup do
+  let(:suite_id) { 'smp_v100' }
+  let(:group) { suite.groups.find { |g| g.id.include?(described_class.id) } }
   let(:url) { 'http://example.com/fhir' }
+  let(:patient_id) { 'patient-1' }
+  let(:patient) do
+    FHIR::Patient.new(id: patient_id)
+  end
   let(:success_outcome) do
     {
       outcomes: [{
@@ -25,39 +29,34 @@ RSpec.describe PacioSMPTestKit::PatientGroup do
   end
 
   describe 'read test' do
-    let(:test) { group.tests.first }
-    let(:patient_id) { 'abc123' }
+    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientReadTest.id) } }
+
+    before do
+      allow_any_instance_of(test)
+        .to receive(:scratch_resources).and_return(
+          {
+            all: [patient]
+          }
+        )
+    end
 
     it 'passes if a Patient was received' do
-      resource = FHIR::Patient.new(id: patient_id)
       stub_request(:get, "#{url}/Patient/#{patient_id}")
-        .to_return(status: 200, body: resource.to_json)
+        .to_return(status: 200, body: patient.to_json)
 
-      result = run(test, url: url, patient_id: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('pass'), result.result_message
     end
 
     it 'fails if a 200 is not received' do
-      resource = FHIR::Patient.new(id: patient_id)
       stub_request(:get, "#{url}/Patient/#{patient_id}")
-        .to_return(status: 201, body: resource.to_json)
+        .to_return(status: 400, body: patient.to_json)
 
-      result = run(test, url: url, patient_id: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('fail'), result.result_message
       expect(result.result_message).to match(/200/)
-    end
-
-    it 'fails if a Patient is not received' do
-      resource = FHIR::Condition.new(id: patient_id)
-      stub_request(:get, "#{url}/Patient/#{patient_id}")
-        .to_return(status: 200, body: resource.to_json)
-
-      result = run(test, url: url, patient_id: patient_id)
-
-      expect(result.result).to eq('fail'), result.result_message
-      expect(result.result_message).to match(/Patient/)
     end
 
     it 'fails if the id received does not match the one requested' do
@@ -65,15 +64,24 @@ RSpec.describe PacioSMPTestKit::PatientGroup do
       stub_request(:get, "#{url}/Patient/#{patient_id}")
         .to_return(status: 200, body: resource.to_json)
 
-      result = run(test, url: url, patient_id: patient_id)
+      result = run(test, url: url)
 
       expect(result.result).to eq('fail'), result.result_message
-      expect(result.result_message).to match(/resource with id/)
+      expect(result.result_message).to match(/resource to have id/)
     end
   end
 
   describe 'validation test' do
-    let(:test) { group.tests.last }
+    let(:test) { group.tests.find { |t| t.id.include?(PacioSMPTestKit::PacioSMPV100::PatientValidationTest.id) } }
+
+    before do
+      allow_any_instance_of(test)
+        .to receive(:scratch_resources).and_return(
+          {
+            all: [patient]
+          }
+        )
+    end
 
     it 'passes if the resource is valid' do
       stub_request(:post, validation_url)

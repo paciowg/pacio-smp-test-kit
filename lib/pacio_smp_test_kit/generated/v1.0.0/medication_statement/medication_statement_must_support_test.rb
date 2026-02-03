@@ -1,0 +1,40 @@
+require_relative '../../../must_support_test'
+
+module PacioSMPTestKit
+  module PacioSMPV100
+    class MedicationStatementMustSupportTest < Inferno::Test
+      include PacioSMPTestKit::MustSupportTest
+
+      title 'All must support elements are provided in the MedicationStatement resources returned'
+
+      description %(
+        This test will look through the MedicationStatement resources
+        found previously for the following must support elements:
+
+        * MedicationStatement.dateAsserted
+        * MedicationStatement.dosage
+        * MedicationStatement.effective[x]
+        * MedicationStatement.effective[x]:effectiveDateTime
+        * MedicationStatement.effective[x]:effectivePeriod
+      )
+
+      id :smp_v100_medication_statement_must_support_test
+
+      def resource_type
+        'MedicationStatement'
+      end
+
+      def self.metadata
+        @metadata ||= Generator::GroupMetadata.new(YAML.load_file(File.join(__dir__, 'metadata.yml'), aliases: true))
+      end
+
+      def scratch_resources
+        scratch[:medication_statement_resources] ||= {}
+      end
+
+      run do
+        perform_must_support_test(all_scratch_resources)
+      end
+    end
+  end
+end

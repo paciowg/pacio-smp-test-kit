@@ -1,0 +1,131 @@
+---
+:name: smp_medicationadministration
+:class_name: SmpMedicationadministrationSequence
+:version: v1.0.0
+:reformatted_version: v100
+:resource: MedicationAdministration
+:profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medicationadministration
+:profile_name: Standardized Medication Profile - MedicationAdministration
+:profile_version: 1.0.0
+:title: MedicationAdministration
+:short_description: Verify support for the server capabilities required by the Standardized
+  Medication Profile - MedicationAdministration.
+:is_delayed: false
+:interactions:
+- :code: read
+  :expectation: SHOULD
+- :code: create
+  :expectation: MAY
+- :code: update
+  :expectation: MAY
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+- :names:
+  - status
+  :expectation: SHOULD
+  :names_not_must_support_or_mandatory: []
+  :must_support_or_mandatory: true
+:search_definitions:
+  :patient:
+    :paths:
+    - subject
+    :full_paths:
+    - MedicationAdministration.subject
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+  :status:
+    :paths:
+    - status
+    :full_paths:
+    - MedicationAdministration.status
+    :comparators: {}
+    :values:
+    - in-progress
+    - not-done
+    - on-hold
+    - completed
+    - entered-in-error
+    - stopped
+    - unknown
+    :type: code
+    :contains_multiple: false
+    :multiple_or: MAY
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements: []
+:mandatory_elements:
+- MedicationAdministration.status
+- MedicationAdministration.medication[x]
+- MedicationAdministration.subject
+- MedicationAdministration.effective[x]
+- MedicationAdministration.performer.actor
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/medication-admin-status
+  :path: status
+:references:
+- :path: MedicationAdministration.partOf
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationAdministration|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Procedure|4.0.1
+- :path: MedicationAdministration.medication[x]
+  :profiles:
+  - http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication
+- :path: MedicationAdministration.subject
+  :profiles:
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+- :path: MedicationAdministration.context
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Encounter|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/EpisodeOfCare|4.0.1
+- :path: MedicationAdministration.supportingInformation
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+- :path: MedicationAdministration.performer.actor
+  :profiles:
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+- :path: MedicationAdministration.reasonReference
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Condition|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/Observation|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/DiagnosticReport|4.0.1
+- :path: MedicationAdministration.request
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationRequest|4.0.1
+- :path: MedicationAdministration.device
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Device|4.0.1
+- :path: MedicationAdministration.eventHistory
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Provenance|4.0.1
+:tests:
+- :id: smp_v100_medication_administration_patient_search_test
+  :file_name: medication_administration_patient_search_test.rb
+- :id: smp_v100_medication_administration_status_search_test
+  :file_name: medication_administration_status_search_test.rb
+- :id: smp_v100_medication_administration_read_test
+  :file_name: medication_administration_read_test.rb
+- :id: smp_v100_medication_administration_validation_test
+  :file_name: medication_administration_validation_test.rb
+- :id: smp_v100_medication_administration_must_support_test
+  :file_name: medication_administration_must_support_test.rb
+:id: smp_v100_medication_administration
+:file_name: medication_administration_group.rb
+:delayed_references:
+- :path: medication[x]
+  :resources:
+  - Medication

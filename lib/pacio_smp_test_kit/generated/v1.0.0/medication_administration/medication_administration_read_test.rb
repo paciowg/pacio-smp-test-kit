@@ -1,0 +1,26 @@
+require_relative '../../../read_test'
+
+module PacioSMPTestKit
+  module PacioSMPV100
+    class MedicationAdministrationReadTest < Inferno::Test
+      include PacioSMPTestKit::ReadTest
+
+      title 'Server returns correct MedicationAdministration resource from MedicationAdministration read interaction'
+      description 'A server SHOULD support the MedicationAdministration read interaction.'
+
+      id :smp_v100_medication_administration_read_test
+
+      def resource_type
+        'MedicationAdministration'
+      end
+
+      def scratch_resources
+        scratch[:medication_administration_resources] ||= {}
+      end
+
+      run do
+        perform_read_test(all_scratch_resources)
+      end
+    end
+  end
+end

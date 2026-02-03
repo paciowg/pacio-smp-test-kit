@@ -1,0 +1,90 @@
+---
+:name: smp_medication_action_plan_detected_issue
+:class_name: SmpMedicationActionPlanDetectedIssueSequence
+:version: v1.0.0
+:reformatted_version: v100
+:resource: DetectedIssue
+:profile_url: http://hl7.org/fhir/us/smp/StructureDefinition/smp-medication-action-plan-detected-issue
+:profile_name: Standardized Medication Profile - Medication Action Plan Detected Issue
+:profile_version: 1.0.0
+:title: Medication Action Plan Detected Issue
+:short_description: Verify support for the server capabilities required by the Standardized
+  Medication Profile - Medication Action Plan Detected Issue.
+:is_delayed: false
+:interactions:
+- :code: read
+  :expectation: SHOULD
+:operations: []
+:searches:
+- :names:
+  - patient
+  :expectation: SHALL
+  :names_not_must_support_or_mandatory:
+  - patient
+  :must_support_or_mandatory: false
+:search_definitions:
+  :patient:
+    :paths:
+    - patient
+    :full_paths:
+    - DetectedIssue.patient
+    :comparators: {}
+    :values: []
+    :type: Reference
+    :contains_multiple: false
+    :multiple_or: MAY
+:include_params: []
+:revincludes: []
+:required_concepts: []
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: code
+  - :path: implicated
+    :types:
+    - Reference
+  - :path: detail
+:mandatory_elements:
+- DetectedIssue.status
+- DetectedIssue.implicated
+- DetectedIssue.mitigation.action
+:bindings:
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/observation-status
+  :path: status
+- :type: code
+  :strength: required
+  :system: http://hl7.org/fhir/ValueSet/detectedissue-severity
+  :path: severity
+:references:
+- :path: DetectedIssue.patient
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Patient|4.0.1
+- :path: DetectedIssue.author
+  :profiles:
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
+  - http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+- :path: DetectedIssue.implicated
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/MedicationStatement
+- :path: DetectedIssue.evidence.detail
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Resource|4.0.1
+- :path: DetectedIssue.mitigation.author
+  :profiles:
+  - http://hl7.org/fhir/StructureDefinition/Practitioner|4.0.1
+  - http://hl7.org/fhir/StructureDefinition/PractitionerRole|4.0.1
+:tests:
+- :id: smp_v100_detected_issue_patient_search_test
+  :file_name: detected_issue_patient_search_test.rb
+- :id: smp_v100_detected_issue_read_test
+  :file_name: detected_issue_read_test.rb
+- :id: smp_v100_detected_issue_validation_test
+  :file_name: detected_issue_validation_test.rb
+- :id: smp_v100_detected_issue_must_support_test
+  :file_name: detected_issue_must_support_test.rb
+:id: smp_v100_detected_issue
+:file_name: detected_issue_group.rb
+:delayed_references: []
