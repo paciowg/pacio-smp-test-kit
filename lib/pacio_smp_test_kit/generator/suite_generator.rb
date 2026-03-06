@@ -29,11 +29,6 @@ module PacioSMPTestKit
         "PACIO #{Naming::SHORT_NAME} Server #{ig_metadata.ig_version}"
       end
 
-      def output
-        binding.pry
-        @output ||= ERB.new(template, trim_mode: '-').result(binding)
-      end
-
       def ig_identifier
         version = ig_metadata.ig_version[1..] # Remove leading 'v'
         "hl7.fhir.us.smp#current"
