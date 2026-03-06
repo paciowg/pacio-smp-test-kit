@@ -21,7 +21,7 @@ none are returned, the test is skipped.
       optional
 
       def self.properties
-        @properties ||= USCoreTestKit::SearchTestProperties.new(
+        @properties ||= PacioInfernoCore::SearchTestProperties.new(
           resource_type: 'MedicationAdministration',
           search_param_names: ['status']
         )

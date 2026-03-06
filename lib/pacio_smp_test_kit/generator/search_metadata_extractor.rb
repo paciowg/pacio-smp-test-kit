@@ -1,9 +1,9 @@
-require 'us_core_test_kit/generator/search_metadata_extractor'
+require 'pacio_inferno_core/generator/search_metadata_extractor'
 require_relative 'search_definition_metadata_extractor'
 
 module PacioSMPTestKit
   class Generator
-    class SearchMetadataExtractor < USCoreTestKit::Generator::SearchMetadataExtractor
+    class SearchMetadataExtractor < PacioInfernoCore::Generator::SearchMetadataExtractor
       def basic_searches
         result = super
         

@@ -1,10 +1,10 @@
-require 'us_core_test_kit/generator/read_test_generator'
+require 'pacio_inferno_core/generator/read_test_generator'
 require_relative 'naming'
 require_relative 'special_cases'
 
 module PacioSMPTestKit
   class Generator
-    class ReadTestGenerator < USCoreTestKit::Generator::ReadTestGenerator
+    class ReadTestGenerator < PacioInfernoCore::Generator::ReadTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups

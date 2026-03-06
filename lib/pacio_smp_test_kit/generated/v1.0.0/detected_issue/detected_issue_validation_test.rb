@@ -1,9 +1,9 @@
-require 'us_core_test_kit/validation_test'
+require 'pacio_inferno_core/validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class DetectedIssueValidationTest < Inferno::Test
-      include USCoreTestKit::ValidationTest
+      include PacioInfernoCore::ValidationTest
 
       id :smp_v100_detected_issue_validation_test
 

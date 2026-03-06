@@ -1,9 +1,9 @@
-require 'us_core_test_kit/must_support_test'
+require 'pacio_inferno_core/must_support_test'
 
 module PacioSMPTestKit
   module MustSupportTest
-    include USCoreTestKit::MustSupportTest
-    extend USCoreTestKit::MustSupportTest
+    include PacioInfernoCore::MustSupportTest
+    extend PacioInfernoCore::MustSupportTest
   end
 end
 

@@ -35,7 +35,7 @@ requirement of PACIO SMP v1.0.0.
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
 
       def self.properties
-        @properties ||= USCoreTestKit::SearchTestProperties.new(
+        @properties ||= PacioInfernoCore::SearchTestProperties.new(
           first_search: true,
           resource_type: 'CarePlan',
           search_param_names: ['patient'],

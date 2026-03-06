@@ -19,7 +19,7 @@ module PacioSMPTestKit
             description: 'Comma separated list of patient IDs that in sum contain all MUST SUPPORT elements'
 <% end %>
       def self.properties
-        @properties ||= USCoreTestKit::SearchTestProperties.new(
+        @properties ||= PacioInfernoCore::SearchTestProperties.new(
 <%= search_test_properties_string %>
         )
       end

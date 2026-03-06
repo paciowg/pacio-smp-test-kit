@@ -1,10 +1,10 @@
-require 'us_core_test_kit/generator/suite_generator'
+require 'pacio_inferno_core/generator/suite_generator'
 
 require_relative 'naming'
 
 module PacioSMPTestKit
   class Generator
-    class SuiteGenerator < USCoreTestKit::Generator::SuiteGenerator
+    class SuiteGenerator < PacioInfernoCore::Generator::SuiteGenerator
       def template
         @template ||= File.read(File.join(__dir__, 'templates', 'suite.rb.erb'))
       end

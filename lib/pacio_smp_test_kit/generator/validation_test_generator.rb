@@ -1,9 +1,9 @@
-require 'us_core_test_kit/generator/validation_test_generator'
+require 'pacio_inferno_core/generator/validation_test_generator'
 require_relative 'naming'
 
 module PacioSMPTestKit
   class Generator
-    class ValidationTestGenerator < USCoreTestKit::Generator::ValidationTestGenerator
+    class ValidationTestGenerator < PacioInfernoCore::Generator::ValidationTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups

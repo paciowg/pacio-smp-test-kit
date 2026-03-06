@@ -1,7 +1,7 @@
 require 'tls_test_kit'
-require 'us_core_test_kit/custom_groups/capability_statement/conformance_support_test'
-require 'us_core_test_kit/custom_groups/capability_statement/fhir_version_test'
-require 'us_core_test_kit/custom_groups/capability_statement/json_support_test'
+require 'pacio_inferno_core/custom_groups/capability_statement/conformance_support_test'
+require 'pacio_inferno_core/custom_groups/capability_statement/fhir_version_test'
+require 'pacio_inferno_core/custom_groups/capability_statement/json_support_test'
 require_relative '../capability_statement/instantiate_test'
 
 module PacioSMPTestKit

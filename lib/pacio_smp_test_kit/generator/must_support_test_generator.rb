@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'us_core_test_kit/generator/must_support_test_generator'
+require 'pacio_inferno_core/generator/must_support_test_generator'
 require_relative 'naming'
 
 module PacioSMPTestKit
   class Generator
-    class MustSupportTestGenerator < USCoreTestKit::Generator::MustSupportTestGenerator
+    class MustSupportTestGenerator < PacioInfernoCore::Generator::MustSupportTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups

@@ -1,9 +1,9 @@
-require 'us_core_test_kit/generator/search_test_generator'
+require 'pacio_inferno_core/generator/search_test_generator'
 require_relative 'naming'
 
 module PacioSMPTestKit
   class Generator
-    class SearchTestGenerator < USCoreTestKit::Generator::SearchTestGenerator
+    class SearchTestGenerator < PacioInfernoCore::Generator::SearchTestGenerator
       class << self
         def generate(ig_metadata, base_output_dir)
           ig_metadata.groups

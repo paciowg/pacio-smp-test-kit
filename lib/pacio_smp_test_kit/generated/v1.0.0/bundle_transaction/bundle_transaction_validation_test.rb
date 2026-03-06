@@ -1,9 +1,9 @@
-require 'us_core_test_kit/validation_test'
+require 'pacio_inferno_core/validation_test'
 
 module PacioSMPTestKit
   module PacioSMPV100
     class BundleTransactionValidationTest < Inferno::Test
-      include USCoreTestKit::ValidationTest
+      include PacioInfernoCore::ValidationTest
 
       id :smp_v100_bundle_transaction_validation_test
 
