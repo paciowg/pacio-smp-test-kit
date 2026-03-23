@@ -15,26 +15,6 @@ module PacioSMPTestKit
         @template ||= File.read(File.join(__dir__, 'templates', 'validation.rb.erb'))
       end
 
-      def directory_name
-        Naming.snake_case_for_profile(medication_request_metadata || group_metadata)
-      end
-
-      def profile_identifier
-        Naming.snake_case_for_profile(group_metadata)
-      end
-
-      def test_id
-        "#{Naming::SHORT_NAME.downcase}_#{group_metadata.reformatted_version}_#{profile_identifier}_validation_test"
-      end
-
-      def class_name
-        "#{Naming.upper_camel_case_for_profile(group_metadata)}ValidationTest"
-      end
-
-      def module_name
-        "Pacio#{Naming::SHORT_NAME}#{group_metadata.reformatted_version.upcase}"
-      end
-
       def generate
         FileUtils.mkdir_p(output_file_directory)
         File.write(output_file_name, output)

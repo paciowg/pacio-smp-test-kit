@@ -1,8 +1,6 @@
 module PacioSMPTestKit
   class Generator
     module Naming
-      SHORT_NAME = 'SMP'.freeze
-
       IG_LINKS = {
         'v1.0.0' => 'https://build.fhir.org/ig/HL7/smp-ig/branches/mlt-preapply'
       }.freeze
@@ -10,6 +8,18 @@ module PacioSMPTestKit
       class << self
         def resources_with_multiple_profiles
           ['Bundle']
+        end
+
+        def prefix
+          'smp'
+        end
+
+        def module_name
+          'PacioSMP'
+        end
+
+        def long_name
+          'PACIO SMP'
         end
 
         def resource_has_multiple_profiles?(resource)
@@ -21,7 +31,7 @@ module PacioSMPTestKit
           return resource.underscore unless resource_has_multiple_profiles?(resource)
 
           group_metadata.name
-            .delete_prefix("#{SHORT_NAME.downcase}_")
+            .delete_prefix("#{prefix.downcase}_")
             .underscore
         end
 

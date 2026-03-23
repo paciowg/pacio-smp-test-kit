@@ -18,14 +18,6 @@ module PacioSMPTestKit
         @template ||= File.read(File.join(__dir__, 'templates', 'search.rb.erb'))
       end
 
-      def test_id
-        "#{Naming::SHORT_NAME.downcase}_#{group_metadata.reformatted_version}_#{profile_identifier}_#{search_identifier}_search_test"
-      end
-
-      def module_name
-        "Pacio#{Naming::SHORT_NAME}#{group_metadata.reformatted_version.upcase}"
-      end
-
       def search_test_properties_string
         search_properties
           .map { |key, value| "#{' ' * 10}#{key}: #{value}" }
@@ -49,7 +41,7 @@ module PacioSMPTestKit
           Additionally, this test will check that GET and POST search methods
           return the same number of results. Search by POST is required by the
           FHIR R4 specification, and these tests interpret search by GET as a
-          requirement of PACIO #{Naming::SHORT_NAME} #{group_metadata.version}.
+          requirement of #{Naming.long_name} #{group_metadata.version}.
         POST_SEARCH_DESCRIPTION
       end
 
@@ -64,7 +56,7 @@ module PacioSMPTestKit
           #{first_search_description}
           #{post_search_description}
 
-          [PACIO #{Naming::SHORT_NAME} Server CapabilityStatement](#{ig_link}/CapabilityStatement-smp-server.html)
+          [#{Naming.long_name} Server CapabilityStatement](#{ig_link}/CapabilityStatement-smp-server.html)
         DESCRIPTION
       end
     end
