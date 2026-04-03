@@ -47,9 +47,9 @@ module PacioSMPTestKit
            config: {
              options: { minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
            }
-      test from: :us_core_conformance_support
-      test from: :us_core_fhir_version
-      test from: :us_core_json_support
+      test from: :pacio_inferno_core_conformance_support
+      test from: :pacio_inferno_core_fhir_version
+      test from: :pacio_inferno_core_json_support
       test from: :smp_instantiate
     end
   end

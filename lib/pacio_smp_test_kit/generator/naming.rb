@@ -31,7 +31,7 @@ module PacioSMPTestKit
           return resource.underscore unless resource_has_multiple_profiles?(resource)
 
           group_metadata.name
-            .delete_prefix("#{prefix.downcase}_")
+            .delete_prefix("#{prefix}_")
             .underscore
         end
 
